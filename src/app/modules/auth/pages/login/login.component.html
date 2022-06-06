@@ -1,0 +1,18 @@
+<div class="login-area">
+  <div class="card panel-custom">
+    <div class="card-heading custom_head">
+      <div class="view-header">
+        <div class="header-icon">
+          <i class="pe-7s-unlock"></i>
+        </div>
+        <div class="header-title">
+          <h3>Login</h3>
+          <small><strong>Please enter your credentials to login.</strong></small>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <app-form [model]="model" [loading]="login_loading" [fields]="fields" [formoptions]="formoptions" (submit)="userLogin($event)"></app-form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<aside class="main-sidebar" style="min-height: 1548px;">
+  <div class="sidebar">
+    <ul class="sidebar-menu">
+      <li *ngFor="let menu of menus" class="treeview mt-2">
+        <a *ngIf="menu.link" [routerLink]="menu.link">
+          <i [ngClass]="menu.iconclass"></i><span>{{ menu.name }}</span>
+          <span class="pull-right-container"> </span>
+        </a>
+        <a href="#" *ngIf="!menu.link">
+          <i [ngClass]="menu.iconclass"></i><span>{{ menu.name }}</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left float-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu" *ngIf="menu.submenu && menu.submenu.length > 0">
+          <li *ngFor="let submenu of menu.submenu"><a *ngIf="submenu.link" [routerLink]="submenu.link">{{ submenu.name
+              }}</a></li>
+        </ul>
+      </li>
+      <hr>
+    </ul>
+
+    <ul class="sidebar-menu">
+      <li *ngFor="let access_menu of user_menu" class="treeview mt-2">
+        <a *ngIf="access_menu.sections.length === 0"
+          [routerLink]="access_menu.DefaultRoute && access_menu.DefaultRoute">
+          <i [ngClass]="access_menu.IconClass"></i><span>{{ access_menu.Name }}</span>
+          <span class="pull-right-container"> </span>
+        </a>
+        <a href="#" *ngIf="!(access_menu.DefaultRoute && access_menu.DefaultRoute)">
+          <i [ngClass]="access_menu.IconClass"></i><span>{{ access_menu.Name }}</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left float-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu" *ngIf="access_menu.sections.length > 0">
+          <li *ngFor="let submenu of access_menu.sections">
+            <a *ngIf="access_menu.DefaultRoute && access_menu.DefaultRoute"
+              [routerLink]="access_menu.DefaultRoute && access_menu.DefaultRoute">{{ submenu }}</a>
+          </li>
+        </ul>
+      </li>
+
+    </ul>
+
+  </div>
+</aside>

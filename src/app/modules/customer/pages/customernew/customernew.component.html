@@ -1,0 +1,222 @@
+<section class="content-header">
+  <div class="header-icon">
+    <i class="fa fa-user-plus"></i>
+  </div>
+  <div class="header-title">
+    <h1>Customers</h1>
+    <small>List of all customers</small>
+  </div>
+</section>
+<section class="content">
+  <div class="row">
+    <div class="col-lg-12 pinpin lobicard-parent-sortable ui-sortable">
+      <div class="card lobicard lobicard-sortable" id="lobicard-custom-controls" data-sortable="true">
+        <div class="card-header ui-sortable-handle">
+          <app-customer-search (submit)="searchFormSubmit($event)" [loading]="loading_info || loading_details">
+          </app-customer-search>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="customerForm" (submit)="onSubmit($event)">
+            <div class="row">
+              <div class="col-9">
+                <app-customer-info formControlName="customer_info"></app-customer-info>
+
+                <div class="custom_tabs">
+                  <div class="card2-body card_card card lobicard lobicard-sortable">
+                    <div class="card-header ui-sortable-handle pt-0">
+                      <div class="card-title custom_title p-0 m-0">
+                        <h4>
+                          <ul class="nav nav-tabs" id="myTab1" role="tablist">
+                            <li class="nav-item">
+                              <a class="nav-link active" id="address-tab" data-toggle="tab" href="#address" role="tab"
+                                aria-controls="address" aria-selected="true">Address</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" id="email-tab" data-toggle="tab" href="#email" role="tab"
+                                aria-controls="email" aria-selected="false">Email</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" id="phone-tab" data-toggle="tab" href="#phone" role="tab"
+                                aria-controls="phone" aria-selected="false">Phone</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" id="bank-tab" data-toggle="tab" href="#bank" role="tab"
+                                aria-controls="bank" aria-selected="false">Banks</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" id="nextkins-tab" data-toggle="tab" href="#nextkins" role="tab"
+                                aria-controls="nextkins" aria-selected="false">Next of kins</a>
+                            </li>
+                          </ul>
+                        </h4>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="tab-content">
+                        <div class="tab-pane fade active show" id="address" role="tabpanel"
+                          aria-labelledby="address-tab">
+                          <app-customer-address formControlName="customer_address" [customer_address]="customer_address"></app-customer-address>
+                        </div>
+                        <div class="tab-pane fade" id="email" role="tabpanel" aria-labelledby="email-tab">
+                          <app-customer-email formControlName="customer_email" [customer_email]="customer_email"></app-customer-email>
+                        </div>
+                        <div class="tab-pane fade" id="phone" role="tabpanel" aria-labelledby="phone-tab">
+                          <app-customer-phone formControlName="customer_phone" [customer_phone]="customer_phone"></app-customer-phone>
+                        </div>
+                        <div class="tab-pane fade" id="bank" role="tabpanel" aria-labelledby="bank-tab">
+                          <app-customer-banks formControlName="customer_banks" [customer_banks]="customer_banks"></app-customer-banks>
+
+                        </div>
+                        <div class="tab-pane fade" id="nextkins" role="tabpanel" aria-labelledby="nextkins-tab">
+                          <p>It is a long established fact that a reader will be distracted by the readable content of a
+                            page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                            more-or-less
+                            normal distribution of letters, as opposed to using 'Content here, content here', making it
+                            look
+                            like readable English. Many desktop publishing packages and web page editors now use Lorem
+                            Ipsum
+                            as their default model text, and a search for 'lorem ipsum' will uncover many web sites
+                            still
+                            in
+                            their infancy. </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col 3">
+                <app-customer-publish [formtype]="formtype"></app-customer-publish>
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              <!-- <div class="col-9" id="accordionparent">
+                <app-customer-info #customerinfo [accountofficers]="accountofficers" [customer_info]="customer_info"
+                  (customerInfoFormSubmitter)="getAllForms($event)">
+                </app-customer-info>
+
+                <div class="custom_tabs">
+                  <div class="card2-body card_card card lobicard lobicard-sortable">
+                    <div class="card-header ui-sortable-handle pt-0">
+                      <div class="card-title custom_title p-0 m-0">
+                        <h4>
+                          <ul class="nav nav-tabs" id="myTab1" role="tablist">
+                            <li class="nav-item">
+                              <a class="nav-link active" id="address-tab" data-toggle="tab" href="#address" role="tab"
+                                aria-controls="address" aria-selected="true">Address</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" id="email-tab" data-toggle="tab" href="#email" role="tab"
+                                aria-controls="email" aria-selected="false">Email</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" id="phone-tab" data-toggle="tab" href="#phone" role="tab"
+                                aria-controls="phone" aria-selected="false">Phone</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" id="bank-tab" data-toggle="tab" href="#bank" role="tab"
+                                aria-controls="bank" aria-selected="false">Banks</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" id="nextkins-tab" data-toggle="tab" href="#nextkins" role="tab"
+                                aria-controls="nextkins" aria-selected="false">Next of kins</a>
+                            </li>
+                          </ul>
+                        </h4>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="tab-content">
+                        <div class="tab-pane fade active show" id="address" role="tabpanel" aria-labelledby="address-tab">
+                          <p>It is a long established fact that a reader will be distracted by the readable content of a
+                            page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less
+                            normal distribution of letters, as opposed to using 'Content here, content here', making it
+                            look
+                            like readable English. Many desktop publishing packages and web page editors now use Lorem
+                            Ipsum
+                            as their default model text, and a search for 'lorem ipsum' will uncover many web sites still
+                            in
+                            their infancy. </p>
+                        </div>
+                        <div class="tab-pane fade" id="email" role="tabpanel" aria-labelledby="email-tab">
+                          <p>It is a long established fact that a reader will be distracted by the readable content of a
+                            page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less
+                            normal distribution of letters, as opposed to using 'Content here, content here', making it
+                            look
+                            like readable English. Many desktop publishing packages and web page editors now use Lorem
+                            Ipsum
+                            as their default model text, and a search for 'lorem ipsum' will uncover many web sites still
+                            in
+                            their infancy. </p>
+                        </div>
+                        <div class="tab-pane fade" id="phone" role="tabpanel" aria-labelledby="phone-tab">
+                          <p>It is a long established fact that a reader will be distracted by the readable content of a
+                            page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less
+                            normal distribution of letters, as opposed to using 'Content here, content here', making it
+                            look
+                            like readable English. Many desktop publishing packages and web page editors now use Lorem
+                            Ipsum
+                            as their default model text, and a search for 'lorem ipsum' will uncover many web sites still
+                            in
+                            their infancy. </p>
+                        </div>
+                        <div class="tab-pane fade" id="bank" role="tabpanel" aria-labelledby="bank-tab">
+                          <p>It is a long established fact that a reader will be distracted by the readable content of a
+                            page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less
+                            normal distribution of letters, as opposed to using 'Content here, content here', making it
+                            look
+                            like readable English. Many desktop publishing packages and web page editors now use Lorem
+                            Ipsum
+                            as their default model text, and a search for 'lorem ipsum' will uncover many web sites still
+                            in
+                            their infancy. </p>
+                        </div>
+                        <div class="tab-pane fade" id="nextkins" role="tabpanel" aria-labelledby="nextkins-tab">
+                          <p>It is a long established fact that a reader will be distracted by the readable content of a
+                            page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less
+                            normal distribution of letters, as opposed to using 'Content here, content here', making it
+                            look
+                            like readable English. Many desktop publishing packages and web page editors now use Lorem
+                            Ipsum
+                            as their default model text, and a search for 'lorem ipsum' will uncover many web sites still
+                            in
+                            their infancy. </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-3">
+
+              </div> -->
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

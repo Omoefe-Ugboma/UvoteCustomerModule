@@ -1,0 +1,126 @@
+<ng-container [formGroup]="customerInfoForm">
+  <div class="card lobicard lobicard-sortable" data-sortable="true">
+    <div class="card-header ui-sortable-handle">
+      <div class="card-title custom_title">
+        <h4>Customer Info</h4>
+      </div>
+      <div class="dropdown">
+        <ul class="dropdown-menu dropdown-menu-right">
+          <li>
+            <a data-toggle="collapse" href="#collapse-one" role="button" aria-expanded="true"
+              aria-controls="collapse-one"><i appCollapseClicked class="card-control-icon fa fa-minus"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="collapse-one" class="collapse show" data-parent="#accordionparent">
+      <div class="card-body">
+        <div class="row mb-3">
+          <div class="col-md-3 pr-1 pl-1">
+            <label for="title" class="control-label">Select Title</label>
+            <select formControlName="title" class="form-control">
+              <option value="Mr">Mr</option>
+              <option value="Mrs">Mrs</option>
+              <option value="Ms">Ms</option>
+              <option value="Dr">Dr</option>
+            </select>
+            <div *ngIf="(title.touched && title.invalid)"
+              class="help-block small text-danger">
+              <span class="font-weight-bold">Select a title</span>
+            </div>
+          </div>
+          <div class="col-md-3 pr-1 pl-1">
+            <label for="firstname" class="control-label">First Name</label>
+            <input type="text" formControlName="firstname" id="firstname" class="form-control form-control-user"
+              aria-describedby="nameHelp" title="Enter customer's firstname" required>
+            <div *ngIf="(firstname.touched && firstname.invalid)"
+              class="help-block small text-danger">
+              <span class="font-weight-bold">Enter customer's firstname</span>
+            </div>
+          </div>
+          <div class="col-md-3 pr-1 pl-1">
+            <label for="lastname" class="control-label">Last Name</label>
+            <input type="text" formControlName="lastname" id="lastname" class="form-control form-control-user"
+              aria-describedby="nameHelp" title="Enter customer's lastname" required>
+            <div *ngIf="(lastname.touched && lastname.invalid)"
+              class="help-block small text-danger">
+              <span class="font-weight-bold">Enter customer's lastname</span>
+            </div>
+          </div>
+          <div class="col-md-3 pr-1 pl-1">
+            <label for="customer_number" class="control-label">Customer Number</label>
+            <input type="text" formControlName="customer_number" id="customer_number"
+              class="form-control form-control-user" aria-describedby="nameHelp" title="Customer's Number" required>
+            <div
+              *ngIf="(customer_number.touched && customer_number.invalid)"
+              class="help-block small text-danger">
+              <span class="font-weight-bold">Enter customer's number</span>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-3 pr-1 pl-1">
+            <label for="date_of_birth" class="control-label">Date of Birth</label>
+            <input type="date" formControlName="date_of_birth" id="date_of_birth" class="form-control form-control-user"
+              aria-describedby="nameHelp" title="Date of birth" required>
+            <div *ngIf="(date_of_birth.touched && date_of_birth.invalid)"
+              class="help-block small text-danger">
+              <span class="font-weight-bold">Select date of birth</span>
+            </div>
+          </div>
+          <div class="col-md-3 pr-1 pl-1">
+            <label for="gender" class="control-label">Select Gender</label>
+            <select formControlName="gender" class="form-control">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+            <div *ngIf="(gender.touched && gender.invalid)"
+              class="help-block small text-danger">
+              <span class="font-weight-bold">Select a gender</span>
+            </div>
+          </div>
+          <div class="col-md-3 pr-1 pl-1">
+            <label for="country" class="control-label">Country</label>
+            <input type="text" formControlName="country" id="country" class="form-control form-control-user"
+              aria-describedby="nameHelp" title="Enter customer's country" required>
+            <div *ngIf="(country.touched && country.invalid)"
+              class="help-block small text-danger">
+              <span class="font-weight-bold">Enter customer's country</span>
+            </div>
+          </div>
+          <div class="col-md-3 pr-1 pl-1">
+            <label for="state" class="control-label">State</label>
+            <input type="text" formControlName="state" id="state" class="form-control form-control-user"
+              aria-describedby="nameHelp" title="Enter customer's state" required>
+            <div *ngIf="(state.touched && state.invalid)"
+              class="help-block small text-danger">
+              <span class="font-weight-bold">Enter customer's state</span>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-3 pr-1 pl-1">
+            <label for="customer_type" class="control-label">Customer Type</label>
+            <input type="text" formControlName="customer_type" id="customer_type" class="form-control form-control-user"
+              aria-describedby="nameHelp" title="Customer type" required>
+            <div *ngIf="(customer_type.touched && customer_type.invalid)"
+              class="help-block small text-danger">
+              <span class="font-weight-bold">Enter customer type</span>
+            </div>
+          </div>
+          <div class="col-md-3 pr-1 pl-1">
+            <label for="officer_id" class="control-label">Select Account Officer</label>
+            <select formControlName="officer_id" class="form-control">
+              <option *ngFor="let officer of (accountofficers && accountofficers);" [value]="officer.ID">{{
+                officer.Name }}</option>
+            </select>
+            <div *ngIf="(officer_id.touched && officer_id.invalid)"
+              class="help-block small text-danger">
+              <span class="font-weight-bold">Select account officer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

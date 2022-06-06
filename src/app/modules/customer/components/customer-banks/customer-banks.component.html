@@ -1,0 +1,33 @@
+<ng-container [formGroup]="customerBankForm">
+  <div class="d-sm-flex align-items-center justify-content-between">
+    <button (click)="addProcessOrder()" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm">
+      <i class="fa fa-plus fa-sm text-white-50"></i> Add bank field</button>
+
+  </div>
+  <div formArrayName="processBankDetails">
+    <div *ngFor="let order of processBankDetails; let i = index;" [formGroupName]="i">
+      <div class="form-row mt-3">
+        <div class="col-5">
+          <label for="bankname" class="control-label">Select Bank</label>
+          <select formControlName="bank_name" class="form-control">
+            <option *ngFor="let bank of (customer_banks && customer_banks | async);" [value]="bank.BankName">{{
+              bank.BankName }}</option>
+          </select>
+        </div>
+        <div class="col-5">
+          <label for="bankaccount" class="control-label">Enter Bank Account Number</label>
+          <input type="number" formControlName="account_number" class="form-control form-control-user"
+            aria-describedby="emailHelp" title="Please enter account number" required>
+        </div>
+        <div class="col-1 mt-2"><br>
+          <button (click)="removeProcessBankField(i)" class="btn btn-danger btn-circle">
+            <i class="fa fa-trash"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <h6 class="text-center font-weight-bold text-black-50" *ngIf="processBankDetails.length < 1">Please click add
+      bank field button to add more bank fields  </h6>
+  </div>
+ 
+</ng-container>

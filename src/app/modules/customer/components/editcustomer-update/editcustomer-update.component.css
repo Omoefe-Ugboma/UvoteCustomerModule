@@ -1,0 +1,20 @@
+.hide{
+    display: none;
+}
+
+.ddTshiftdateDisplay{
+    margin-left: -20px;
+  }
+  .ddTshiftdate{
+    margin-left: 20px;
+  }
+  .ddTshiftdatevalue{
+    margin-left: 15px;
+  }
+
+  img {
+    border: 1px solid #ddd;
+    /* border-radius: 30px; */
+    padding: 5px;
+    width: 150px;
+  }

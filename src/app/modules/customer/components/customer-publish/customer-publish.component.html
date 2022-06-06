@@ -1,0 +1,25 @@
+<div class="card lobicard lobicard-sortable" data-sortable="true">
+  <div class="card-header ui-sortable-handle">
+    <div class="card-title custom_title">
+      <h4>Publish</h4>
+    </div>
+    <div class="dropdown">
+      <ul class="dropdown-menu dropdown-menu-right">
+        <li><a data-func="editTitle" data-tooltip="Edit title" data-toggle="tooltip" data-title="Edit title"
+            data-placement="bottom" data-original-title="" title=""><i
+              class="card-control-icon fa fa-info-circle"></i><span class="control-title">Edit
+              title</span></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="card-body">
+    <div *ngIf="formtype === 'new_form'">
+      <button class="btn btn-add-transparent btn-sm btn-block mt-3 mb-3">Save as draft</button>
+      <button class="btn btn-add btn-sm btn-block mt-3 mb-3">Submit for approval</button>
+    </div>
+    <div *ngIf="formtype === 'update_form'">
+      <button class="btn btn-add btn-sm btn-block mt-3 mb-3">Submit updates</button>
+    </div>
+  </div>
+</div>

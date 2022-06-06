@@ -1,0 +1,37 @@
+  <!-- Customer Email here -->
+  <div class="tab-pane" id="custinfo" role="tabpanel" aria-labelledby="custinfo-tab">
+    <!-- <span>Customer Email</span> -->
+    <div class="card lobicard" data-sortable="true">
+      <div class="card-header lobicard-custom-control ui-sortable-handle"  >
+        <div class="card-title custom_title">
+          <h4>Customer Banks information 
+          </h4>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover">
+            <tbody> 
+              <tbody *ngIf="customers">
+                <tr>
+                  <th>No.</th>
+                  <th>Bankk Name</th>
+                  <th>Account Name</th>
+                  <th>Account Number</th>
+                </tr>
+
+                <tr *ngFor="let custBank of customers.BankDetailJson; let i = index">
+                  <td>{{1+i}}</td>
+                  <td>{{custBank.bank_name}}</td>
+                  <td>{{custBank.account_name}}</td>
+                  <td>{{custBank.account_number}}</td>
+                </tr>
+              </tbody>
+          </table>
+        </div>
+      
+         
+
+      </div>
+    </div>
+</div>

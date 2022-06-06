@@ -1,0 +1,14 @@
+<form role="form" [formGroup]="searchCustomerForm" #f="ngForm" (submit)="searchForm(f)">
+  <div class="dropdown col-sm-4">
+    <div class="input-group mb-2 mt-2">
+      <input formControlName="search" type="text" class="form-control" placeholder="Enter Customer Number/Email/Phone"
+        aria-label="Customer Number" aria-describedby="basic-addon2">
+      <div class="input-group-append">
+        <button [disabled]="loading" class="btn btn-add btn-sm" type="submit">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+          <i *ngIf="!loading" class="fa fa-search"></i> Search</button>
+      </div>
+    </div>
+  </div>
+</form>
+

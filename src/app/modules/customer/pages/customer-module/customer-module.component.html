@@ -1,0 +1,26 @@
+<section class="content-header">
+    <div class="header-icon">
+      <i class="fa fa-user-plus"></i>
+    </div>
+    <div class="header-title">
+      <h1>Customers</h1>
+      <small>List of all customers</small>
+    </div>
+  </section>
+  <mat-card>
+      
+    <h3>View Customer List | Submit for Approval | Approve a Customer</h3>
+    <mat-tab-group animationDuration="1000ms">
+      <mat-tab label="Approved Customer">
+          <app-customer-section></app-customer-section>
+      </mat-tab>
+      <mat-tab label="Submit For Approval">
+        <app-customer-section-draft></app-customer-section-draft>
+        <!-- <app-pending-customers></app-pending-customers> -->
+      </mat-tab>
+      <mat-tab label="Approve A Customer">
+        <app-customer-section-approve></app-customer-section-approve>
+      </mat-tab>
+    </mat-tab-group>
+
+  </mat-card>

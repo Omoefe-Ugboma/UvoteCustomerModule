@@ -1,0 +1,449 @@
+<ng-container [ngSwitch]="stepperOrientation | async">
+  <div *ngSwitchCase="'horizontal'"></div>
+  <div *ngSwitchCase="'vertical'"></div>
+</ng-container>
+
+<form [formGroup]="form" #f="ngForm" (ngSubmit)="onUpdate(f)" enctype="multipart/form-data" >
+  <mat-stepper
+    class="example-stepper"
+    [orientation]="(stepperOrientation | async)!">
+    <mat-step [stepControl]="form">
+       <mat-card>
+        <form [formGroup]="form">
+           
+          <mat-grid-list cols="3" rowHeight="2:1">
+              <mat-grid-tile>
+                <mat-form-field appearance="fill">
+                  <mat-label>Title</mat-label>
+                  <mat-select formControlName="title" placeholder="SELECT TITLE">
+                    <mat-option value="Mr">Mr</mat-option>
+                    <mat-option value="Mrs">Mrs</mat-option>
+                    <mat-option value="Ms">Ms</mat-option>
+                    <mat-option value="Dr">Dr</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <mat-form-field appearance="fill">
+                  <mat-label>First Name</mat-label>
+                  <input matInput formControlName="firstname" placeholder="First name" >
+                </mat-form-field>
+              </mat-grid-tile>
+              
+                  <input matInput formControlName="customer_id" class="hide">
+
+              <mat-grid-tile>
+                <mat-form-field appearance="fill">
+                  <mat-label>Last Name</mat-label>
+                  <input matInput formControlName="lastname" placeholder="Last name" >
+                </mat-form-field>
+              </mat-grid-tile>
+          </mat-grid-list>
+        
+          <mat-grid-list cols="3" rowHeight="2:1">
+              <mat-grid-tile>
+                <mat-form-field appearance="fill">
+                  <mat-label>Middle Name</mat-label>
+                  <input matInput formControlName="middlename" placeholder="Middle name" >
+                </mat-form-field>
+              </mat-grid-tile>
+              
+              <mat-grid-tile>
+                <mat-form-field appearance="fill">
+                  <mat-label class="ddTshiftdate">Date of Birth</mat-label>
+                  <input matInput [matDatepicker]="picker" formControlName="date_of_birth"
+                  class="ddTshiftdatevalue">
+                  <mat-datepicker-toggle matSuffix [for]="picker" class="ddTshiftdateDisplay"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+              </mat-grid-tile>
+             
+              <mat-grid-tile>
+                <mat-form-field appearance="fill">
+                  <mat-label>NIN</mat-label>
+                  <input matInput formControlName="nin" placeholder="NIN" >
+                </mat-form-field>
+              </mat-grid-tile>
+  
+          </mat-grid-list>
+
+          <mat-grid-list cols="3" rowHeight="2:1">
+            <mat-grid-tile>
+              <mat-form-field appearance="fill">
+                <mat-label>BVN</mat-label>
+                <input matInput formControlName="bvn" placeholder="BVN" >
+              </mat-form-field>
+            </mat-grid-tile>
+            
+            <mat-grid-tile>
+              <mat-form-field appearance="fill">
+                <mat-label>Select Gender</mat-label>
+                <mat-select formControlName="gender" placeholder="SELECT GENDER">
+                  <mat-option value="male">Male</mat-option>
+                  <mat-option value="female">Female</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
+           
+            <mat-grid-tile>
+              <mat-form-field appearance="fill">
+                <mat-label>Nationality</mat-label>
+                <input matInput formControlName="nationality" placeholder="Nationality" >
+              </mat-form-field>
+            </mat-grid-tile>
+            
+        </mat-grid-list>
+          <div>
+            <button mat-button class="btn btn-primary btn-sm mx-1" matStepperNext>NEXT</button>
+          </div>
+        </form>
+       </mat-card>
+    </mat-step>
+
+    <mat-step [stepControl]="form">
+      <mat-card>
+        <form [formGroup]="form">
+          <mat-grid-list cols="3" rowHeight="2:1">
+            <mat-grid-tile>
+              <mat-form-field appearance="fill">
+                <mat-label>Country of Origin</mat-label>
+                <input matInput formControlName="country_of_origin" placeholder="Country of Origin" >
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <mat-form-field appearance="fill">
+                <mat-label>Nok First Name</mat-label>
+                <input matInput formControlName="nok_firstname" placeholder="nokfname" >
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <mat-form-field appearance="fill">
+                <mat-label>Nok Last Name</mat-label>
+                <input matInput formControlName="nok_lastname" placeholder="nok last name" >
+              </mat-form-field>
+            </mat-grid-tile>
+        </mat-grid-list>
+
+          <mat-grid-list cols="3" rowHeight="2:1">
+            <mat-grid-tile>
+              <mat-form-field appearance="fill">
+                <mat-label>Nok Phone</mat-label>
+                <input matInput formControlName="nok_phone" placeholder="Nok Phone" >
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <mat-form-field appearance="fill">
+                <mat-label>Nok Email</mat-label>
+                <input matInput formControlName="nok_email" placeholder="nokemail" >
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <mat-form-field appearance="fill">
+                <mat-label>Relationship</mat-label>
+                <input matInput formControlName="relationship" placeholder="Relationship" >
+              </mat-form-field>
+            </mat-grid-tile>
+          </mat-grid-list>
+
+          <mat-grid-list cols="3" rowHeight="2:1">
+            <mat-grid-tile>
+              <mat-form-field appearance="fill">
+                <mat-label>Customer Type</mat-label>
+                <input matInput formControlName="customer_type" placeholder="customer_type" >
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <mat-form-field appearance="fill">
+                <mat-label>Account Officer</mat-label>
+                <mat-select formControlName="officer_id" placeholder="Account Officer">
+                <mat-option  value=""></mat-option>
+                <mat-option *ngFor="let item of data;" value="{{item.ManagerNumber}}">{{item.ManagerName}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <mat-form-field appearance="fill">
+                <mat-label>State</mat-label>
+                <input matInput formControlName="state" placeholder="state" >
+              </mat-form-field>
+            </mat-grid-tile>
+          </mat-grid-list>
+
+          <div>
+            <button mat-button class="btn btn-primary btn-sm mx-1" matStepperPrevious>BACK</button>
+            <button mat-button class="btn btn-primary btn-sm mx-1" matStepperNext>NEXT</button>
+          </div>
+        </form>
+      </mat-card>
+    </mat-step>
+   
+    <mat-step [stepControl]="form">
+      <mat-card>
+        <form [formGroup]="form">
+          <mat-grid-list cols="3" rowHeight="2:1">
+            <h5 class="text-center">Emails</h5>
+            <span class="btn btn-outline-primary" (click)="addNewEmails()">New emails</span>
+            <ng-container formArrayName="email" *ngFor="let o of email.controls; let i = index">
+                <div class="row mt-2" [formGroupName]="i"><b>Contact {{i+1}}</b>
+                <div class="col-md-2"><label>Email</label></div>
+                <div class="col-md-6">
+                    <input formControlName="email" type="text" class="form-control"> 
+                </div><button class="btn btn-outline-danger btn-ms mx-3" (click)="removeContact(i)">&times;</button>
+            </div>
+            </ng-container>
+        </mat-grid-list>
+
+
+          <div>
+            <button mat-button class="btn btn-primary btn-sm mx-1 mt-3" matStepperPrevious>BACK</button>
+            <button mat-button class="btn btn-primary btn-sm mx-1 mt-3" matStepperNext>NEXT</button>
+          </div>
+        </form>
+      </mat-card>
+    </mat-step>
+
+    <mat-step [stepControl]="form">
+      <mat-card>
+        <form [formGroup]="form">
+          <mat-grid-list cols="3" rowHeight="2:1">
+            <h5 class="text-center">Phone</h5>
+            <span class="btn btn-outline-primary" (click)="addNewPhones()">New Phones</span>
+            <ng-container formArrayName="phone" *ngFor="let o of phone.controls; let i = index">
+                <div class="row mt-2" [formGroupName]="i"><b>Contact {{i+1}}</b>
+                <div class="col-md-2"><label>Phone</label></div>
+                <div class="col-md-6">
+                    <input formControlName="phone" type="text" class="form-control"> 
+                </div><button class="btn btn-outline-danger btn-ms mx-3" (click)="removePhone(i)">&times;</button>
+            </div>
+            </ng-container>
+        </mat-grid-list>
+
+
+          <div>
+            <button mat-button class="btn btn-primary btn-sm mx-1 mt-3" matStepperPrevious>BACK</button>
+            <button mat-button class="btn btn-primary btn-sm mx-1 mt-3" matStepperNext>NEXT</button>
+          </div>
+        </form>
+      </mat-card>
+    </mat-step>
+
+    <mat-step [stepControl]="form">
+      <mat-card>
+        <form [formGroup]="form">
+          <mat-grid-list cols="3" rowHeight="2:1">
+            <h5 class="text-center">Address</h5>
+                <span class="btn btn-outline-primary" (click)="addNewAddress()">New Address Field</span>
+                <ng-container formArrayName="address" *ngFor="let o of address.controls; let i = index">
+                    <div class="row mt-2" [formGroupName]="i">
+                    
+                    
+                    <div class="col-md-3">
+                      <b>Address {{i+1}} </b>
+                      <!-- <label></label> -->
+                        <input formControlName="address1" type="text" class="form-control"> 
+                    </div>
+                    
+                    <div class="col-md-3">
+                      <b>Address {{i+1}} </b>
+                      <!-- <label></label> -->
+                        <input formControlName="address2" type="text" class="form-control"> 
+                    </div>
+
+                    <div class="col-md-2">
+                      <b>City {{i+1}} </b>
+                        <input formControlName="city" type="text" class="form-control"> 
+                    </div>
+
+                    <div class="col-md-3">
+                      <b>State {{i+1}} </b>
+                        <input formControlName="state" type="text" class="form-control"> 
+                    </div>
+
+                    <div class="col-md-1">
+                      <button class="btn btn-outline-danger btn-sm mt-4" (click)="removeAddress(i)">&times;</button>
+                    </div>
+                   
+                </div>
+                
+                </ng-container>
+        </mat-grid-list>
+
+
+          <div>
+            <button mat-button class="btn btn-primary btn-sm mx-1 mt-3" matStepperPrevious>BACK</button>
+            <button mat-button class="btn btn-primary btn-sm mx-1 mt-3" matStepperNext>NEXT</button>
+          </div>
+        </form>
+      </mat-card>
+    </mat-step>
+    
+    <mat-step [stepControl]="form">
+      <mat-card>
+        <form [formGroup]="form">
+          <mat-grid-list cols="3" rowHeight="2:1">
+            <h5 class="text-center">Banks</h5>
+              <span class="btn btn-outline-primary" (click)="addNewBanks()">New Bank Field</span>
+              <ng-container formArrayName="bank" *ngFor="let o of bank.controls; let i = index">
+                  <div class="row mt-2" [formGroupName]="i">
+                  
+                  
+                  <div class="col-md-4">
+                    <b>Bank Name {{i+1}} </b>
+                          <select formControlName="bank_name" class="form-control">
+                            <option value="Access Bank Plc">Access Bank Plc</option>
+                            <option value="Zenith Bank Plc">Zenith Bank Plc</option>
+                            <option value="Union Bank of Nigeria Plc">Union Bank of Nigeria Plc</option>
+                            <option value="Guaranty Trust Holding Company Plc">Guaranty Trust Holding Company Plc</option>
+                          </select>
+                  </div>
+                  
+                  <div class="col-md-4">
+                    <b>AC-Name {{i+1}} </b>
+                      <input formControlName="account_name" type="text" class="form-control"> 
+                  </div>
+
+                  <div class="col-md-3">
+                    <b>AC-Number {{i+1}} </b>
+                      <input formControlName="account_number" type="text" class="form-control"> 
+                  </div>
+                  
+                  <div class="col-md-1">
+                    <button class="btn btn-outline-danger btn-sm mt-4" (click)="removeBank(i)">&times;</button>
+                  </div>
+                 
+              </div>
+              
+              </ng-container>
+
+        </mat-grid-list>
+
+
+          <div>
+            <button mat-button class="btn btn-primary btn-sm mx-1 mt-3" matStepperPrevious>BACK</button>
+            <button mat-button class="btn btn-primary btn-sm mx-1 mt-3" matStepperNext>NEXT</button>
+          </div>
+        </form>
+      </mat-card>
+    </mat-step>
+
+    <mat-step [stepControl]="form">
+      <mat-card>
+        <form [formGroup]="form">
+          <mat-grid-list cols="3" rowHeight="2:1">
+            <h5 class="text-center">Identification</h5>
+              <!-- <span class="btn btn-outline-primary">Select Your Identity</span> -->
+                <ng-container>
+              <div class="row mt-2">
+                  
+                  
+                  <!-- <div class="col-md-4">
+                     
+                          <select class="form-control" formControlName="identification_type">
+                            <option value="nationalid">National ID</option>
+                            <option value="passport">International ID</option>
+                            <option value="utilitybill">Utility Bill</option>
+                          </select>
+                  </div> -->
+                  <div class="form-group">
+                    <label for="photo">Identity Card:</label>
+                    <div>
+                      <input type="file" name="identity_card" (change)="onFileSelect($event, 'identity_card')" />
+                      <img class="card-img-top" [src]="customers.activeLink.IdentificationProof" alt="" width="80">
+                    </div>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="photo">Photo Passport:</label>
+                    <div>
+                      <input type="file" name="passport_photo" (change)="onFileSelect($event, 'passport_photo')" />
+                      <img class="card-img-top" [src]="customers.activeLink.Photograph" alt="" width="80">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="photo">Utility Bill:</label>
+                    <div>
+                      <input type="file" name="utility_bill" (change)="onFileSelect($event,'utility_bill')" />
+                      <img class="card-img-top" [src]="customers.activeLink.ProofofResidence" alt="" width="80">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="photo">Signature:</label>
+                    <div>
+                      <input type="file" name="signature" (change)="onFileSelect($event,'signature')" />
+                      <img class="card-img-top" [src]="customers.activeLink.Signature" alt="" width="80">
+                    </div>
+                  </div>
+                  <!-- <div class="col-md-8">
+                     <input type="file" (change)="onChange($event)" class="form-group">
+                     <button (click)="onUpload()" class="btn btn-success">Upload ID</button>
+                  </div> -->
+                  
+                  <!-- <div class="col-md-1">
+                    <button class="btn btn-outline-danger btn-sm mt-4">&times;</button>
+                  </div> -->
+                 
+              </div>
+              
+              </ng-container>
+
+        </mat-grid-list>
+
+
+          <div>
+            <button mat-button class="btn btn-primary btn-sm mx-1 mt-3" matStepperPrevious>BACK</button>
+            <button mat-button class="btn btn-primary btn-sm mx-1 mt-3" matStepperNext>NEXT</button>
+          </div>
+        </form>
+      </mat-card>
+    </mat-step>
+
+    <!-- <mat-step [stepControl]="form">
+      <mat-card>
+        <form [formGroup]="form">
+          <mat-grid-list cols="3" rowHeight="2:1">
+            <h5 class="text-center">Phone</h5>
+            <span class="btn btn-outline-primary" (click)="addNewPhones()">New Phones</span>
+            <ng-container formArrayName="phone" *ngFor="let o of phone.controls; let i = index">
+                <div class="row mt-2" [formGroupName]="i"><b>Contact {{i+1}}</b>
+                <div class="col-md-2"><label>Phone</label></div>
+                <div class="col-md-6">
+                    <input formControlName="phone" type="text" class="form-control"> 
+                </div><button class="btn btn-outline-danger btn-ms mx-3" (click)="removePhone(i)">&times;</button>
+            </div>
+            </ng-container>
+        </mat-grid-list>
+
+
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-card>
+    </mat-step> -->
+    <!-- <mat-step [stepControl]="form">
+      <form [formGroup]="form">
+        <mat-form-field appearance="fill">
+          <mat-label>Phone number</mat-label>
+          <input matInput formControlName="middlename" placeholder="Ex. 12345678" >
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step> -->
+    <mat-step>
+      <ng-template matStepLabel></ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button matStepperPrevious class="btn btn-primary btn-sm mx-1">BACK</button>
+        
+          <button [disabled]="loading" type="submit" class="btn btn-primary btn-sm mx-2">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm" role="status"
+                              aria-hidden="true"></span>
+            Update for Approval</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+</form>

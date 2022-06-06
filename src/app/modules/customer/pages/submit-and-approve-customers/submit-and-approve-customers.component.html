@@ -1,0 +1,94 @@
+<div class="container" *ngIf="alert && !submitted">
+  <div class="alert alert-light alert-dismissible fade show">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>{{customers.FirstName}} !</strong> has been submitted for approval.
+  </div>
+</div>
+<div class="container" *ngIf="alert && submitted">
+  <div class="alert alert-light alert-dismissible fade show">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>{{customers.FirstName}} !</strong> is now Approved.
+  </div>
+</div>
+<div class="tab-pane" id="custinfo" role="tabpanel" aria-labelledby="custinfo-tab">
+    <div>
+      <div class="table-responsive">
+        
+        <table class="table table-bordered table-hover">
+            <tbody *ngIf="customers">
+              
+              <div class="card">
+                <h5 class="card-header">
+                  <span *ngIf="!submitted">Click to submit <strong>{{customers.FirstName}}</strong> for approval</span> 
+                  <span *ngIf="submitted">Click to approve <strong>{{customers.FirstName}} {{customers.LastName}}</strong></span> 
+                </h5>
+                <div class="card-body">
+
+                     <div class="text-center">
+                        <ng-container *ngIf="!submitted; else elseNotDone">
+                            <span class="btn btn-danger btn-sm"
+                            (click)="submitApproval(customers.PersonMasterDraftID)">Submit for approval</span>
+                          </ng-container>
+                      
+                          <ng-template #elseNotDone>
+                            <span class="btn btn-success btn-sm" *ngIf="submitted"
+                            > approve customer</span>
+                          </ng-template>
+                     </div>
+                      
+                  <!-- <tr> -->
+                      <!-- <th>Nationality</th>
+                      <th>State of Origin</th> -->
+                      <!-- <th>Gender</th> -->
+                      <!-- <th>Country of Origin</th> -->
+                      <!-- <th class="text-center" colspan="3">Approved</th>   
+                  </tr> -->
+                  <!-- <tr> -->
+                    <!-- <td>{{customers.Nationality}}</td>
+                    <td>{{customers.StateofOrigin}}</td> -->
+                    <!-- <td>{{customers.Gender}}</td> -->
+                    <!-- <td>{{customers.CountryofOrigin}}</td> -->
+                    <!-- <td class="text-center"  colspan="3">
+                      <ng-container *ngIf="customers.IsSubmitted == 0; else elseNotDone">
+                        <span class="btn btn-danger btn-sm">Submit for approval</span>
+                      </ng-container>
+                  
+                      <ng-template #elseNotDone>
+                        <span class="btn btn-success btn-sm"> approve customer</span>
+                      </ng-template> -->
+                    <!-- </td> -->
+                  <!-- </tr> -->
+
+                </div>
+              </div>
+            </tbody>
+        </table>
+      </div>      
+      
+
+      <div id="accordionparent" *ngIf="!customers">
+        <div class="card lobicard lobicard-sortable" data-sortable="true">
+          <div class="card-header lobicard-custom-control ui-sortable-handle">
+            <div class="card-title custom_title" class="nav-item" class="text-center m-3">
+              <h4>
+                <!-- <span class="btn btn-outline-info"> -->
+                  <!-- <a class="nav-link" id="createdraft-tab" data-toggle="tab" href="#createdraft" role="tab"
+                aria-controls="createdraft" aria-selected="false"> -->
+                Choose a customer to Submit or Approve 
+               <!-- </a> -->
+              <!-- </span> -->
+              </h4>
+             
+            </div>
+            
+
+          </div>
+           <div id="collapsetwo" class="collapse" aria-labelledby="headingThree" data-parent="#accordionparent"> 
+           
+          </div> 
+        </div> 
+       
+      </div>
+    </div>
+  
+</div>

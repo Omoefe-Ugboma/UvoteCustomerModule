@@ -1,0 +1,90 @@
+  <div class="tab-pane" id="custinfo" role="tabpanel" aria-labelledby="custinfo-tab">
+      <div>
+        <div class="table-responsive">
+          
+          <table class="table table-bordered table-hover">
+              <!-- <tbody *ngIf="customers && !showEditedCustomer"> -->
+              <tbody *ngIf="customers && !showEditedCustomer">
+                <div class="card">
+                  <h5 class="card-header">
+                    <span>Basic Details</span> 
+                    <span class="pull-right btn btn-add btn-sm" >
+                      <i class="card-control-icon fa fa-pencil" (click)="editCustomer(customers)"></i>
+                    </span>
+                  </h5>
+                  <div class="card-body">
+                    <tr>
+                      <th scope="col">Title</th>   
+                      <th scope="col">First Name</th>   
+                      <th scope="col">Middle Name</th>
+                      <th scope="col">Last Name</th> 
+                      <th scope="col">Date of Birth</th>       
+                    </tr>
+                    <tr>
+                      <td scope="row">{{customers.Title}}</td> 
+                      <td>{{customers.FirstName}}</td>
+                      <td>{{customers.MiddleName}}</td>
+                      <td>{{customers.LastName}}</td>
+                      <td>{{customers.DateofBirth}}</td>
+                    </tr>
+                    <tr>
+                        <th>Nationality</th>
+                        <th>State of Origin</th>
+                        <th>Gender</th>
+                        <th>Country of Origin</th>
+                        <th class="text-center">Approved</th>   
+                    </tr>
+                    <tr>
+                      <td>{{customers.Nationality}}</td>
+                      <td>{{customers.StateofOrigin}}</td>
+                      <td>{{customers.Gender}}</td>
+                      <td>{{customers.CountryofOrigin}}</td>
+                      <td class="text-center">
+                        <ng-container *ngIf="customers.IsSubmitted == 0; else elseNotDone">
+                          <span class="btn btn-danger btn-sm">Not - YET</span>
+                        </ng-container>
+                    
+                        <ng-template #elseNotDone>
+                          <span class="btn btn-success btn-sm"> YES</span>
+                        </ng-template>
+                      </td>
+                    </tr>
+
+                  </div>
+                </div>
+                  
+              </tbody>
+          </table>
+          <app-editcustomer-update [customers]="selectedCustomer" *ngIf="showEditedCustomer"
+         ></app-editcustomer-update>
+        
+        </div>      
+         
+
+        <div id="accordionparent" *ngIf="!customers">
+          <div class="card lobicard lobicard-sortable" data-sortable="true">
+            <div class="card-header lobicard-custom-control ui-sortable-handle">
+              <div class="card-title custom_title" class="nav-item" class="text-center m-3">
+                <h4>
+                  <span class="btn btn-outline-info">
+                    <a class="nav-link" id="createdraft-tab" data-toggle="tab" href="#createdraft" role="tab"
+                  aria-controls="createdraft" aria-selected="false">
+                  Create a Customer 
+                 </a>
+                </span>
+                </h4>
+               
+              </div>
+              
+
+            </div>
+             <div id="collapsetwo" class="collapse" aria-labelledby="headingThree" data-parent="#accordionparent"> 
+             
+            </div> 
+          </div> 
+         
+        </div>
+      </div>
+    
+</div>
+ 

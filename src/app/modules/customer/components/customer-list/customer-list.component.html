@@ -1,0 +1,19 @@
+<div class="card-body">                             
+    <div class="tab-content">     
+      <div class="list-group">    
+           <div>
+            <span class="list-group-item"  *ngFor="let cust of customers | paginate: { itemsPerPage: 5, currentPage: page,totalItems:totalLength}">
+                <span  *ngIf="cust">
+                  <span (click)="customerClick(cust)" class="right-custlist">
+                    {{cust.FirstName}} {{cust.LastName}} 
+                  </span>
+                  <!-- <i *ngIf="cust" class="card-control-icon fa fa-pencil"></i> -->
+                </span>
+                
+              </span> 
+          </div>  
+             
+      </div> 
+      <pagination-controls (pageChange)="page=$event" class="text-left"></pagination-controls>
+    </div>
+  </div>

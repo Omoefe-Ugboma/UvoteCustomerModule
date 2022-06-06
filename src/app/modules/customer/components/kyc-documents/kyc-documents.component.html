@@ -1,0 +1,79 @@
+  <!-- Customer Email here -->
+  <div class="tab-pane" id="custinfo" role="tabpanel" aria-labelledby="kyc-tab">
+    <!-- <span>Customer Email</span> -->
+    <div class="card lobicard" data-sortable="true">
+      <div class="card-header lobicard-custom-control ui-sortable-handle"  >
+        <div class="card-title custom_title">
+          <h4>Customer KYC 
+          </h4>
+        </div>
+      </div>
+      <!-- <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover">
+            <tbody> 
+              <tbody *ngIf="customers">
+                <tr>     
+                  <th>Identity Card</th>  
+                  <th>Photo</th>  
+                  <th>Utility ID</th>     
+                  <th>Signature</th>       
+                         
+                </tr>
+                 <tr *ngFor="let custAddress of customers.activeLink; let i = index">
+                  <td> {{1+i}}</td> -->
+                  <!-- <td>{{custAddress.IdentificationProof}}</td> -->
+                  <!-- <td>{{custAddress.address1}}</td>
+                    
+                  <td>{{custAddress.address2}}</td>
+                  <td>{{custAddress.state}}</td>
+                  <td>{{custAddress.city}}</td> -->
+                <!-- </tr> -->
+                <!-- <tr>
+                  <td>
+                      <img [src]="customers.activeLink.IdentificationProof" alt="" width="80">
+                  </td>
+                  <td>
+                    <img [src]="customers.activeLink.Photograph" alt="" width="80">
+                </td>
+                <td>
+                    <img [src]="customers.activeLink.ProofofResidence" alt="" width="80">
+                </td>
+                <td>
+                    <img [src]="customers.activeLink.Signature" alt="" width="80">
+                </td>
+                </tr>
+              </tbody>
+          </table>
+        </div>
+      </div>  -->
+    <!-- Image card -->
+      <div class="card-group" *ngIf="customers">
+        <div class="card kyc-image">
+          <img class="card-img-top" [src]="customers.activeLink.IdentificationProof" alt="" width="80">
+          <div class="card-footer">
+            <small class="text-muted">Identity Card</small>
+          </div>
+        </div>
+        <div class="card kyc-image">
+          <img class="card-img-top" [src]="customers.activeLink.Photograph" alt="" width="80">
+          <div class="card-footer">
+            <small class="text-muted">Photo Passport</small>
+          </div>
+        </div>
+        <div class="card kyc-image">
+          <img class="card-img-top" [src]="customers.activeLink.ProofofResidence" alt="" width="80">
+          <div class="card-footer">
+            <small class="text-muted">Utility ID</small>
+          </div>
+        </div>
+        <div class="card kyc-image">
+          <img class="card-img-top" [src]="customers.activeLink.Signature" alt="" width="80">
+          <div class="card-footer">
+            <small class="text-muted">Signature</small>
+          </div>
+        </div>
+      </div>
+
+    </div>
+</div>

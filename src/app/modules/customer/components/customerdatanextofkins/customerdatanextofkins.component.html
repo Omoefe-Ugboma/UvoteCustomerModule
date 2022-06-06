@@ -1,0 +1,73 @@
+  <!-- Customer Email here -->
+  <div class="tab-pane" id="custinfo" role="tabpanel" aria-labelledby="custinfo-tab">
+    <!-- <span>Customer Email</span> -->
+    <div class="card lobicard" data-sortable="true">
+      <div class="card-header lobicard-custom-control ui-sortable-handle"  >
+        <div class="card-title custom_title">
+          <h4>Customer Next of Kins
+          </h4>
+        </div>
+        <!-- <div class="dropdown">
+          <ul class="dropdown-menu dropdown-menu-right">
+            <li>
+              <button class="btn btn-add btn-sm" data-toggle="collapse" data-target="#collapsetwo" aria-expanded="false"
+                aria-controls="collapseTwo">
+                <i class="card-control-icon fa fa-pencil"></i> Update Info
+              </button>
+            </li>
+          </ul>
+        </div> -->
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover">
+            <tbody> 
+              <tbody *ngIf="customers">
+                <tr>
+                  <th>First Name</th>
+                  <td>{{customers.NOKFirstName}}</td>
+                </tr>
+                <tr>
+                  <th>Last Name</th>
+                  <td>{{customers.NOKLastName}}</td>
+                </tr>
+                    
+                <tr>
+                  <th>Phone Number</th>
+                  <td>{{customers.NOKPhoneNumber}}</td>
+                </tr>
+                    
+                <tr>
+                  <th>Email Address</th>
+                  <td>{{customers.NOKEmailAddress}}</td>
+                </tr>
+              </tbody>
+          </table>
+        </div>
+      
+         
+        <!-- <div id="accordionparent">
+          <div class="card lobicard lobicard-sortable" data-sortable="true">
+            <div class="card-header lobicard-custom-control ui-sortable-handle">
+              <div class="card-title custom_title" class="nav-item" class="text-center m-3"> -->
+                <!-- <h4>
+                  <span class="btn btn-outline-info">
+                    <a class="nav-link" id="createdraft-tab" data-toggle="tab" href="#createdraft" role="tab"
+                  aria-controls="createdraft" aria-selected="false">
+                  Create Customer Draft 
+                 </a>
+                </span>
+                </h4> -->
+               
+              <!-- </div> -->
+              
+
+            <!-- </div>
+             <div id="collapsetwo" class="collapse" aria-labelledby="headingThree" data-parent="#accordionparent"> 
+
+            </div>  -->
+          <!-- </div> -->
+        <!-- </div> -->
+      </div>
+    </div>
+</div>

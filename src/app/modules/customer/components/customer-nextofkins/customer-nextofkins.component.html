@@ -1,0 +1,62 @@
+<div class="card lobicard lobicard-sortable" data-sortable="true">
+    <div class="card-header ui-sortable-handle">
+      <div class="card-title custom_title">
+        <h4>Next of Kins Information</h4>
+      </div>
+      <div class="dropdown">
+        <ul class="dropdown-menu dropdown-menu-right">
+          <li>
+            <a data-toggle="collapse" href="#collapse-five" role="button" aria-expanded="false"
+              aria-controls="collapse-five"><i appCollapseClicked class="card-control-icon fa fa-plus"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="collapse-five" class="collapse" data-parent="#accordionparent">
+      <div class="card-body">
+        <form role="form" [formGroup]="customerNextofkinsForm" #f="ngForm" (submit)="onSubmit(f)">
+            <div class="row mb-3">
+              <div class="col-md-3 pr-1 pl-1">
+                <label for="name" class="control-label">Name</label>
+                <input type="text" formControlName="name" id="name" class="form-control form-control-user"
+                  aria-describedby="nameHelp" title="Enter customer's name" required>
+                <div *ngIf="(name.touched && name.invalid) || (f.submitted && name.invalid)"
+                  class="help-block small text-danger">
+                  <span class="font-weight-bold">Enter customer's Name</span>
+                </div>
+              </div>
+              <div class="col-md-3 pr-1 pl-1">
+                <label for="email" class="control-label">Email</label>
+                <input type="text" formControlName="email" id="email" class="form-control form-control-user"
+                  aria-describedby="nameHelp" title="Enter customer's email" required>
+                <div *ngIf="(email.touched && email.invalid) || (f.submitted && email.invalid)"
+                  class="help-block small text-danger">
+                  <span class="font-weight-bold">Enter customer's email</span>
+                </div>
+              </div>
+              <div class="col-md-3 pr-1 pl-1">
+                <label for="phone" class="control-label">Phone</label>
+                <input type="text" formControlName="phone" id="phone" class="form-control form-control-user"
+                  aria-describedby="nameHelp" title="Enter customer's phone" required>
+                <div *ngIf="(phone.touched && phone.invalid) || (f.submitted && phone.invalid)"
+                  class="help-block small text-danger">
+                  <span class="font-weight-bold">Enter customer's phone</span>
+                </div>
+              </div>
+              <div class="col-md-3 pr-1 pl-1">
+                <label for="relationship" class="control-label">Relationship</label>
+                <input type="text" formControlName="relationship" id="relationship" class="form-control form-control-user"
+                  aria-describedby="nameHelp" title="Enter customer's relationship" required>
+                <div *ngIf="(relationship.touched && relationship.invalid) || (f.submitted && relationship.invalid)"
+                  class="help-block small text-danger">
+                  <span class="font-weight-bold">Enter customer's relationship</span>
+                </div>
+              </div>
+            </div>
+            <button [hidden]="true" type="submit" id="customer_nextofkins_button" class="btn btn-add"> Submit
+            </button>
+          </form>
+      </div>
+    </div>
+  </div>
+  
