@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col-12">
+      <div class="card lobicard" data-sortable="true">
+        <div class="card-header lobicard-custom-control ui-sortable-handle">
+          <div class="card-title custom_title">
+            <h4>Customer Email
+            </h4>
+          </div>
+          <!-- <div class="dropdown">
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li>
+                <button class="btn btn-add btn-sm" data-toggle="collapse" data-target="#collapsesevenT" aria-expanded="false"
+                  aria-controls="collapseSevenT">
+                  
+                  <i class="card-control-icon fa fa-plus"></i> Create Email
+                 
+                </button>
+              </li>
+            </ul>
+          </div> -->
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+              <thead class="back_table_color">
+                <tr class="info">
+                  <th>First Email</th>
+                  <th>Second Email</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr *ngFor=" let custEmail of cust_email">
+                    <td>{{custEmail.Email}}</td>
+                    <td>{{custEmail.Email2}}</td>
+                    <!-- <td> -->
+                      <!-- <button type="button" class="btn btn-add btn-sm" data-toggle="collapse" data-target="#collapsesevenT"
+                        aria-expanded="false" aria-controls="collapseSevenT"><i class="fa fa-pencil"></i></button> -->
+                    <!-- </td> -->
+                  <!-- </tr> -->
+
+
+                <!-- <tr *ngFor=" let custEmail of cust_email">
+                  <td>{{custEmail.Email}}</td>
+                  <td>{{custEmail.Email2}}</td> (click)="emailUpdate(custEmail.ID)"-->
+                  <td>
+                    <a href="" class="btn btn-add btn-sm" data-toggle="collapse" data-target="#collapsesevenT"
+                     [routerLink]="['edit', 'details/:cuid']"
+                      aria-expanded="false" aria-controls="collapseSevenT"><i class="fa fa-pencil"></i>
+                  </a>
+                  </td>
+                </tr> 
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

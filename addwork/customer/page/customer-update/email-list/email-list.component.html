@@ -1,0 +1,103 @@
+<div class="row">
+  <!-- Right column -->
+  <div class="col">
+    <app-createupdateemail [cust_email]="cust_email" (setEmailUpdateValues)="setEmailUpdateFormValue($event)"></app-createupdateemail>
+  </div>
+  <div class="col">
+      <!-- Left cloumn -->
+      <div class="card lobicard lobicard-sortable" data-sortable="true">
+        <div class="card-header lobicard-custom-control ui-sortable-handle">
+          <div class="card-title custom_title">
+            <h4>Create/Edit Customer Email
+            </h4>
+          </div>
+        </div>
+        <div id="collapseseven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionparent">
+          <div class="card-body">
+            <div class="accordion">
+              <div class="card12">
+                <div class="card1-body">
+                  <form role="form" [formGroup]="createupdateCustomerEmailForm" #f="ngForm"
+                    (submit)="createupdateCustomerEmail(f)">
+                    <div class="form-group">
+                      <label for="email" class="control-label">First email</label>
+                      <input type="text" formControlName="email" class="form-control form-control-user"
+                        aria-describedby="emailHelp" title="Please enter account number" required>
+                      <div *ngIf="(email.touched && email.invalid) || (f.submitted && email.invalid)"
+                        class="help-block small text-danger">
+                        <span>email is <strong>required</strong></span>
+                      </div>
+                    </div>
+  
+                    <div class="form-group">
+                      <label for="email2" class="control-label">Second Email</label>
+                      <input type="text" formControlName="email2" class="form-control form-control-user"
+                        aria-describedby="emailHelp" title="Please enter account number" required>
+                      <div *ngIf="(email2.touched && email2.invalid) || (f.submitted && email2.invalid)"
+                        class="help-block small text-danger">
+                        <span>section email is <strong>required</strong></span>
+                      </div>
+                    </div>
+                    <div class="col-md-12 form-group user-form-group">
+                      <div>
+                        <button [disabled]="customer_email_loading" type="submit" class="btn btn-add">
+                          <span *ngIf="customer_email_loading" class="spinner-border spinner-border-sm" role="status"
+                            aria-hidden="true"></span>
+                          <i *ngIf="!customer_email_loading" class="fa fa-check"></i> Submit
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+<!-- <div class="row">
+    <div class="col-12">
+      <div class="card lobicard" data-sortable="true">
+        <div class="card-header lobicard-custom-control ui-sortable-handle">
+          <div class="card-title custom_title">
+            <h4>Customer Email
+            </h4>
+          </div>
+          <div class="dropdown">
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li>
+                <button class="btn btn-add btn-sm" data-toggle="collapse" data-target="#collapseseven" aria-expanded="false"
+                  aria-controls="collapseSeven">
+                  <i class="card-control-icon fa fa-plus"></i> Create Email
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+              <thead class="back_table_color">
+                <tr class="info">
+                  <th>First Email</th>
+                  <th>Second Email</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor=" let custEmail of cust_email">
+                  <td>{{custEmail.Email}}</td>
+                  <td>{{custEmail.Email2}}</td>
+                  <td>
+                    <button (click)="emailUpdate(custEmail.ID)" type="button" class="btn btn-add btn-sm" data-toggle="collapse" data-target="#collapseseven"
+                      aria-expanded="false" aria-controls="collapseSeven"><i class="fa fa-pencil"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->

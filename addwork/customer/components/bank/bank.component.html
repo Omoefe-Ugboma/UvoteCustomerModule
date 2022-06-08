@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card lobicard" data-sortable="true">
+      <div class="card-header lobicard-custom-control ui-sortable-handle">
+        <div class="card-title custom_title">
+          <h4>Customer Banks
+          </h4>
+        </div>
+        <div class="dropdown">
+          <ul class="dropdown-menu dropdown-menu-right">
+            <li>
+              <button class="btn btn-add btn-sm" data-toggle="collapse" data-target="#collapsetwo" aria-expanded="false"
+                aria-controls="collapseTwo">
+                <i class="card-control-icon fa fa-plus"></i> Create Bank
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover">
+            <thead class="back_table_color">
+              <tr class="info">
+                <th>Bank Name</th>
+                <th>Account Number</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let bank of banks">
+                <td>{{ bank.BankName }}</td>
+                <td>{{ bank.AccountNumber }}</td>
+                <td>
+                  <button (click)="bankUpdate(bank.ID)" type="button" class="btn btn-add btn-sm" data-toggle="collapse" data-target="#collapsetwo"
+                    aria-expanded="false" aria-controls="collapseTwo"><i class="fa fa-pencil"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

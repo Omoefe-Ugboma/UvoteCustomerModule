@@ -1,0 +1,174 @@
+<section class="content-header">
+  <div class="header-icon">
+    <i class="fa fa-user-plus"></i>
+  </div>
+  <div class="header-title">
+    <h1>Sections</h1>
+    <small>Update user</small>
+  </div>
+</section>
+<section class="content">
+  <div class="row">
+    <div class="col-lg-12 pinpin lobicard-parent-sortable ui-sortable">
+      <div class="card lobicard lobicard-sortable" id="lobicard-custom-controls" data-sortable="true">
+        <div class="card-header ui-sortable-handle">
+          <div class="card-title custom_title" style="max-width: calc(100% - 156px);">
+            <div class="btn-group d-flex" role="group">
+              <div class="buttonexport">
+                <a routerLink="/sections" class="btn btn-add btn-sm">
+                  <i class="fa fa-arrow-left"></i> Back
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <form role="form" [formGroup]="updateSectionForm" #f="ngForm" (submit)="updateSection(f)">
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <label for="name" class="control-label">Section name</label>
+                    <input type="text" formControlName="name" id="name" class="form-control form-control-user"
+                      aria-describedby="emailHelp" title="Please enter section name" required>
+                    <div *ngIf="(name.touched && name.invalid) || (f.submitted && name.invalid)"
+                      class="help-block small text-danger">
+                      <span>Section name is <strong>required</strong></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <label for="description" class="control-label">Description</label>
+                    <input type="text" formControlName="description" id="description" class="form-control form-control-user"
+                      aria-describedby="emailHelp" title="Please enter description" required>
+                    <div *ngIf="(description.touched && description.invalid) || (f.submitted && description.invalid)"
+                      class="help-block small text-danger">
+                      <span>Description is <strong>required</strong></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <label for="password" class="control-label">Select Status</label>
+                    <select formControlName="active" id="active" class="form-control">
+                      <option value="1">Active</option>
+                      <option value="0">Inactive</option>
+                    </select>
+                    <div *ngIf="(active.touched && active.invalid) || (f.submitted && active.invalid)"
+                      class="help-block small text-danger">
+                      <span>Please select status and try again</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- <div class="row">
+                  <div class="col-md-12 form-group">
+                    <label for="section" class="control-label">Select Module</label>
+                    <select formControlName="module_id" id="module_id" class="form-control">
+                      <option *ngFor="let module of (modules && modules | async);" [value]="module.ModuleID">{{ module.Name
+                        }}</option>
+                    </select>
+                    <div *ngIf="(module_id.touched && module_id.invalid) || (f.submitted && module_id.invalid)"
+                      class="help-block small text-danger">
+                      <span>Please select a module and try again</span>
+                    </div>
+                  </div>
+                </div> -->
+                <div class="row">
+                  <div class="col-md-12 form-group user-form-group">
+                    <div>
+                      <button [disabled]="loading" type="submit" class="btn btn-add">
+                        <span *ngIf="loading" class="spinner-border spinner-border-sm" role="status"
+                          aria-hidden="true"></span>
+                        <i *ngIf="!loading" class="fa fa-check"></i> Submit
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <hr>
+              <form role="form" [formGroup]="sectionGroupForm" #h="ngForm" (submit)="addSectionToGroups(h)">
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <label for="password" class="control-label">Select Group</label>
+                    <select formControlName="group_uuid" id="group_uuid" class="form-control">
+                      <option value=""></option>
+                      <option *ngFor="let group of (groups && groups | async);" [value]="group.GroupID">{{ group.GroupName }}</option>
+                    </select>
+                    <div *ngIf="(group_uuid.touched && group_uuid.invalid) || (h.submitted && group_uuid.invalid)"
+                      class="help-block small text-danger">
+                      <span>Please select a group and try again</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 form-group user-form-group">
+                    <div>
+                      <button [disabled]="section_create_group_loading" type="submit" class="btn btn-add">
+                        <span *ngIf="section_create_group_loading" class="spinner-border spinner-border-sm" role="status"
+                          aria-hidden="true"></span>
+                        <i *ngIf="!section_create_group_loading" class="fa fa-check"></i> Add Section to Group
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <div class="card lobicard lobicard-custom-control" data-sortable="true">
+                <div class="card-header">
+                   <div class="card-title custom_title">
+                      <h4>Section Groups</h4>
+                   </div>
+                </div>
+                <div class="card-body">
+                   <div class="table-responsive">
+                      <table class="table table-bordered table-hover">
+                         <thead class="back_table_color">
+                            <tr class="info">
+                               <th>S/N</th>
+                               <th>Group</th>
+                               <th>Description</th>
+                               <th>Action</th>
+                            </tr>
+                         </thead>
+                         <tbody>
+                            <tr *ngFor="let section_group of (section_groups | async); index as i ">
+                               <td>{{ i+1 }}</td>
+                               <td>{{ section_group.GroupName }}</td>
+                               <td>{{ section_group.Description }}</td>
+                               <td><button (click)="group_uuid_to_delete = section_group.GroupID" type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target=".bd-example-modal-sm">
+                                 <i class="fa fa-trash-o"></i></button></td>
+                            </tr>
+                            <tr *ngIf="(section_groups_loading | async) || ((section_groups | async) && (section_groups | async).length == 0)">
+                              <td colspan="4" style="text-align:center;" *ngIf="(section_groups_loading | async)">
+                                Loading...
+                              </td>
+                              <td colspan="4" style="text-align:center;" *ngIf="!(section_groups_loading | async)">
+                                Section does not belong to any group
+                              </td>
+                            </tr>
+                         </tbody>
+                      </table>
+                   </div>
+                </div>
+             </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content" style="border-radius: 0.3em;">
+      <div class="modal-body text-center">
+        <p>Remove section from group?</p>
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="removeSectionFromGroup()">Yes</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+      </div>
+    </div>
+  </div>
+</div>

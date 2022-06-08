@@ -1,0 +1,41 @@
+.form-control-sm {
+  height: calc(.45em + 1.25rem + 5px);
+}
+
+.form-control-sm {
+  padding: .25rem .5rem;
+  font-size: .75rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+}
+
+.mat-form-field {
+  font-size: .75rem !important;
+  height: calc(.45em + 1.25rem + 5px) !important;
+}
+
+.table > thead > tr > th {
+  border-bottom-width: 1px;
+  font-size: 1.0025rem;
+  font-weight: 500;
+}
+
+h6, .h6 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.redClr {
+  color: red;
+  font-weight: 400;
+}
+
+.greenClr {
+  color: green;
+  font-weight: 400;
+}
+
+.thead-light, th {
+  background: #d9edf7;
+}

@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-12">
+      <div class="card lobicard" data-sortable="true">
+        <div class="card-header lobicard-custom-control ui-sortable-handle">
+          <div class="card-title custom_title">
+            <h4>Customer Address
+            </h4>
+          </div>
+          <div class="dropdown">
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li>
+                <button class="btn btn-add btn-sm" data-toggle="collapse" data-target="#collapsefour" aria-expanded="false"
+                  aria-controls="collapseFour">
+                  <i class="card-control-icon fa fa-plus"></i> Create Address
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+              <thead class="back_table_color">
+                <tr class="info">
+                  <th>First Address</th>
+                  <th>Second Address</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor=" let custAddress of cust_address">
+                  <td>{{custAddress.Address}}</td>
+                  <td>{{custAddress.Address2}}</td>
+                  <td>
+                    <button (click)="addressUpdate(custAddress.ID)" type="button" class="btn btn-add btn-sm" data-toggle="collapse" data-target="#collapsefour"
+                      aria-expanded="false" aria-controls="collapseFour"><i class="fa fa-pencil"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

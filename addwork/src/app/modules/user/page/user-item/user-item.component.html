@@ -1,0 +1,193 @@
+<section class="content-header">
+  <div class="header-icon">
+    <i class="fa fa-user-plus"></i>
+  </div>
+  <div class="header-title">
+    <h1>Users</h1>
+    <small>Update user</small>
+  </div>
+</section>
+<section class="content">
+  <div class="row">
+    <div class="col-lg-12 pinpin lobicard-parent-sortable ui-sortable">
+      <div class="card lobicard lobicard-sortable" id="lobicard-custom-controls" data-sortable="true">
+        <div class="card-header ui-sortable-handle">
+          <div class="card-title custom_title" style="max-width: calc(100% - 156px);">
+            <div class="btn-group d-flex" role="group">
+              <div class="buttonexport">
+                <a routerLink="/users/users-list" class="btn btn-add btn-sm">
+                  <i class="fa fa-arrow-left"></i> Back
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <form role="form" [formGroup]="updateUserForm" #f="ngForm" (submit)="updateUser(f)">
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <label for="firstname" class="control-label">First name</label>
+                    <input type="text" formControlName="firstname" id="firstname" class="form-control form-control-user"
+                      aria-describedby="emailHelp" title="Please enter your first name" required>
+                    <div *ngIf="(firstname.touched && firstname.invalid) || (f.submitted && firstname.invalid)"
+                      class="help-block small text-danger">
+                      <span>First name is <strong>required</strong></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <label for="lastname" class="control-label">Last name</label>
+                    <input type="text" formControlName="lastname" id="lastname" class="form-control form-control-user"
+                      aria-describedby="emailHelp" title="Please enter your last name" required>
+                    <div *ngIf="(lastname.touched && lastname.invalid) || (f.submitted && lastname.invalid)"
+                      class="help-block small text-danger">
+                      <span>Last name is <strong>required</strong></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <label for="username" class="control-label">Username</label>
+                    <input type="text" formControlName="username" id="username" class="form-control form-control-user"
+                      aria-describedby="emailHelp" title="Please enter your username" required>
+                    <div *ngIf="(username.touched && username.invalid) || (f.submitted && username.invalid)"
+                      class="help-block small text-danger">
+                      <span>Username name is <strong>required</strong></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-3 mb-3">
+                  <div class="col-md-12 form-group">
+                    <div class="custom-control custom-checkbox">
+                      <input [checked]="isEnabled" [disabled]="loading" type="checkbox"
+                        (change)="changeUserStatus($event.target)" class="custom-control-input" id="customCheck1"
+                        [(ngModel)]="isEnabled" [ngModelOptions]="{standalone: true}">
+                      <label class="custom-control-label" for="customCheck1">Check this to enable a user</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 form-group user-form-group">
+                    <div>
+                      <button [disabled]="loading" type="submit" class="btn btn-add">
+                        <span *ngIf="loading" class="spinner-border spinner-border-sm" role="status"
+                          aria-hidden="true"></span>
+                        <i *ngIf="!loading" class="fa fa-check"></i> Update User
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <hr>
+              <form role="form" [formGroup]="passwordForm" #g="ngForm" (submit)="updatePassword(g)">
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <label for="password" class="control-label">Set New Password</label>
+                    <input type="password" formControlName="password" id="password"
+                      class="form-control form-control-user" title="Please enter your password" required>
+                    <div *ngIf="(password.touched && password.invalid) || (g.submitted && password.invalid)"
+                      class="help-block small text-danger">
+                      <span>Password is <strong>required</strong></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 form-group user-form-group">
+                    <div>
+                      <button [disabled]="changing_password" type="submit" class="btn btn-add">
+                        <span *ngIf="changing_password" class="spinner-border spinner-border-sm" role="status"
+                          aria-hidden="true"></span>
+                        <i *ngIf="!changing_password" class="fa fa-check"></i> Save New Password
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <hr>
+              <form role="form" [formGroup]="userGroupForm" #h="ngForm" (submit)="addUserToGroups(h)">
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <label for="password" class="control-label">Select Group</label>
+                    <select formControlName="group_uuid" id="group_uuid" class="form-control">
+                      <option *ngFor="let group of (groups && groups | async);" [value]="group.GroupID">{{ group.GroupName }}</option>
+                    </select>
+                    <div *ngIf="(group_uuid.touched && group_uuid.invalid) || (h.submitted && group_uuid.invalid)"
+                      class="help-block small text-danger">
+                      <span>Please select a group and try again</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 form-group user-form-group">
+                    <div>
+                      <button [disabled]="user_create_group_loading" type="submit" class="btn btn-add">
+                        <span *ngIf="user_create_group_loading" class="spinner-border spinner-border-sm" role="status"
+                          aria-hidden="true"></span>
+                        <i *ngIf="!user_create_group_loading" class="fa fa-check"></i> Add User to Group
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <div class="card lobicard lobicard-custom-control" data-sortable="true">
+                <div class="card-header">
+                   <div class="card-title custom_title">
+                      <h4>User Groups</h4>
+                   </div>
+                </div>
+                <div class="card-body">
+                   <div class="table-responsive">
+                      <table class="table table-bordered table-hover">
+                         <thead class="back_table_color">
+                            <tr class="info">
+                               <th>S/N</th>
+                               <th>Group</th>
+                               <th>Description</th>
+                               <th>Action</th>
+                            </tr>
+                         </thead>
+                         <tbody>
+                            <tr *ngFor="let user_group of (user_groups | async); index as i ">
+                               <td>{{ i+1 }}</td>
+                               <td>{{ user_group.GroupName }}</td>
+                               <td>{{ user_group.Description }}</td>
+                               <td><button (click)="group_uuid_to_delete = user_group.GroupID" type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target=".bd-example-modal-sm">
+                                 <i class="fa fa-trash-o"></i></button></td>
+                            </tr>
+                            <tr *ngIf="(user_groups_loading | async) || ((user_groups | async) && (user_groups | async).length == 0)">
+                              <td colspan="4" style="text-align:center;" *ngIf="(user_groups_loading | async)">
+                                Loading...
+                              </td>
+                              <td colspan="4" style="text-align:center;" *ngIf="!(user_groups_loading | async)">
+                                User does not belong to any group
+                              </td>
+                            </tr>
+                         </tbody>
+                      </table>
+                   </div>
+                </div>
+             </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content" style="border-radius: 0.3em;">
+      <div class="modal-body text-center">
+        <p>Remove user from group?</p>
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="removeUserFromGroup()">Yes</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+      </div>
+    </div>
+  </div>
+</div>

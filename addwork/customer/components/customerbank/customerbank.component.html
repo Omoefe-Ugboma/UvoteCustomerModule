@@ -1,0 +1,130 @@
+<div class="row">
+    <!-- Right column -->
+    <div class="col">
+        <app-bank [banks]="banks" (setBankUpdateValues)="setBankUpdateFormValue($event)"></app-bank>
+    </div>
+    <div class="col">
+        <!-- Left cloumn -->
+        <div class="card lobicard lobicard-sortable" data-sortable="true">
+            <div class="card-header lobicard-custom-control ui-sortable-handle">
+              <div class="card-title custom_title">
+                <h4>Create/Edit Bank
+                </h4>
+              </div>
+            </div>
+            <div id="collapsetwo" class="collapse" aria-labelledby="headingThree" data-parent="#accordionparent">
+              <div class="card-body">
+                <div class="accordion">
+                  <div class="card12">
+                    <div class="card1-body">
+                      <form role="form" [formGroup]="createupdateCustomerBankForm" #f="ngForm" (submit)="createupdateCustomerBank(f)">
+                        <div class="form-group">
+                          <label for="password" class="control-label">Select Status</label>
+                            <select formControlName="bank_name"  class="form-control">
+                              <option *ngFor="let bank of (customer_banks && customer_banks | async);" [value]="bank.BankName">{{ bank.BankName }}</option>
+                            </select>
+                            <div *ngIf="(bank_name.touched && bank_name.invalid) || (f.submitted && bank_name.invalid)"
+                              class="help-block small text-danger">
+                              <span>Please select a bank and try again</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="account_number" class="control-label">Account Number</label>
+                            <input type="number" formControlName="account_number"
+                              class="form-control form-control-user" aria-describedby="emailHelp"
+                              title="Please enter account number" required>
+                            <div
+                              *ngIf="(account_number.touched && account_number.invalid) || (f.submitted && account_number.invalid)"
+                              class="help-block small text-danger">
+                              <span>Account number is <strong>required</strong></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group user-form-group">
+                          <div>
+                            <button [disabled]="customer_banks_loading" type="submit" class="btn btn-add">
+                              <span *ngIf="customer_banks_loading" class="spinner-border spinner-border-sm" role="status"
+                                aria-hidden="true"></span>
+                              <i *ngIf="!customer_banks_loading" class="fa fa-check"></i> Submit
+                            </button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+
+
+<!-- <div class="row">
+    <div class="col-lg-6 pinpin"> -->
+     <!-- <app-bank [banks]="banks"></app-bank> -->
+     <!-- <app-bank [banks]="banks" (setBankUpdateValues)="setBankUpdateFormValue($event)"></app-bank> -->
+
+    
+     <!-- <div class="col-lg-6 pinpin">
+      <div id="accordionparent" class="row">
+        <div class="col-6">
+          <div class="card lobicard lobicard-sortable" data-sortable="true">
+            <div class="card-header lobicard-custom-control ui-sortable-handle">
+              <div class="card-title custom_title">
+                <h4>Create/Edit Bank
+                </h4>
+              </div>
+            </div>
+            <div id="collapsetwo" class="collapse" aria-labelledby="headingThree" data-parent="#accordionparent">
+              <div class="card-body">
+                <div class="accordion">
+                  <div class="card12">
+                    <div class="card1-body">
+                      <form role="form" [formGroup]="createupdateCustomerBankForm" #f="ngForm" (submit)="createupdateCustomerBank(f)">
+                        <div class="form-group">
+                          <label for="password" class="control-label">Select Status</label>
+                            <select formControlName="bank_name"  class="form-control">
+                              <option *ngFor="let bank of (customer_banks && customer_banks | async);" [value]="bank.BankName">{{ bank.BankName }}</option>
+                            </select>
+                            <div *ngIf="(bank_name.touched && bank_name.invalid) || (f.submitted && bank_name.invalid)"
+                              class="help-block small text-danger">
+                              <span>Please select a bank and try again</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="account_number" class="control-label">Account Number</label>
+                            <input type="number" formControlName="account_number"
+                              class="form-control form-control-user" aria-describedby="emailHelp"
+                              title="Please enter account number" required>
+                            <div
+                              *ngIf="(account_number.touched && account_number.invalid) || (f.submitted && account_number.invalid)"
+                              class="help-block small text-danger">
+                              <span>Account number is <strong>required</strong></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group user-form-group">
+                          <div>
+                            <button [disabled]="customer_banks_loading" type="submit" class="btn btn-add">
+                              <span *ngIf="customer_banks_loading" class="spinner-border spinner-border-sm" role="status"
+                                aria-hidden="true"></span>
+                              <i *ngIf="!customer_banks_loading" class="fa fa-check"></i> Submit
+                            </button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+
+    <!-- </div> -->
+   <!-- sample  -->
+  <!-- </div> -->

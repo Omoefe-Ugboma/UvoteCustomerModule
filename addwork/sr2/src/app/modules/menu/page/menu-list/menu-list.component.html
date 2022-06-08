@@ -1,0 +1,31 @@
+<section class="content-header">
+  <div class="header-icon">
+    <i class="fa fa-user-plus"></i>
+  </div>
+  <div class="header-title">
+    <h1>Menus</h1>
+    <small>List of all menus</small>
+  </div>
+</section>
+<section class="content">
+  <div class="row">
+    <div class="col-lg-12 pinpin lobicard-parent-sortable ui-sortable">
+      <div class="card lobicard lobicard-sortable" id="lobicard-custom-controls" data-sortable="true">
+        <div class="card-header ui-sortable-handle">
+          <div class="card-title custom_title" style="max-width: calc(100% - 156px);">
+            <div class="btn-group d-flex" role="group">
+              <div class="buttonexport">
+                <a routerLink="/menus/menu-create" class="btn btn-add btn-sm">
+                  <i class="fa fa-plus"></i> Add New
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <app-datatable [tableData]="menusTableData"></app-datatable>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

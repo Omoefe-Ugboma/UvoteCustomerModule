@@ -1,0 +1,46 @@
+ 
+
+      title: new FormControl(''),
+      fname: new FormControl(''),
+      lname: new FormControl(''),
+      middlename: new FormControl(''),
+      dateofbirth: new FormControl(''),
+      nin: new FormControl(''),
+      bvn: new FormControl(''),
+      gender: new FormControl(''),
+      nationality: new FormControl(''),
+      countryoforigin: new FormControl(''),
+      state: new FormControl(''),
+      nokfname: new FormControl(''),
+      noklname: new FormControl(''),
+      nokphone: new FormControl(''),
+      nokemail: new FormControl(''),
+      relationship: new FormControl(''),
+      customettype: new FormControl(''),
+      officerid: new FormControl(''),
+
+<div class="card-group">
+  <div class="card">
+    <div class="card-body">
+       
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+       
+    </div>
+  </div>
+  <div class="card">
+    
+    <div class="card-body">
+        
+    </div>
+  </div>
+</div>
+
+
+    // this.step = this.step + 1;
+    // if(this.step == 7){
+    //   this.step = this.step - 1;
+    //   console.log(this.form.value)
+    // }

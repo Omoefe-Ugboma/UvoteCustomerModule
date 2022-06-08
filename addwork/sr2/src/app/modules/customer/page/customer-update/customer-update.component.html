@@ -1,0 +1,344 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <div class="header-icon">
+    <i class="fa fa-outdent"></i>
+  </div>
+  <div class="header-title">
+    <h1>Customer</h1>
+    <small>Customers details</small>
+  </div>
+</section>
+<!-- Main content -->
+
+<!-- Customer Details Section -->
+
+
+<section class="content">
+  <div class="row">
+    <div class="col-lg-6 pinpin">
+      
+      <!-- Customer Information Section -->
+      <app-customer-details [customer]="customer" (setCustomerUpdateValues)="setFormValues($event)"></app-customer-details>
+
+      <!-- Customer Banks Information Section -->
+      <app-bank [banks]="banks" (setBankUpdateValues)="setBankUpdateFormValue($event)"></app-bank>
+      
+       
+  
+         
+                <div class="card lobicard lobicard-custom-control" data-sortable="true">
+                  <div class="card-header">
+                     <div class="card-title custom_title">
+                        <h4>Customer Groups</h4>
+                     </div>
+                  </div>
+                  <div class="card-body">
+                     <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                           <thead class="back_table_color">
+                              <tr class="info">
+                                 <th>S/N</th>
+                                 <th>Group</th>
+                                 <th>Description</th>
+                                 <th>Action</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr *ngFor="let customer_group of (customer_groups); index as i ">
+                                 <td>{{ i+1 }}</td>
+                                 <td>{{ customer_group.Name }}</td>
+                                 <td>{{ customer_group.Details }}</td>
+                                   <td><button (click)="group_uuid_to_delete = customer_group.CGUID" type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target=".bd-example-modal-sm">
+                                   <i class="fa fa-trash-o"></i></button></td>
+                              </tr>
+                              <tr *ngIf="(customer_groups_loading) || ((customer_groups ) && (customer_groups ).length == 0)">
+                                <td colspan="4" style="text-align:center;" *ngIf="(customer_groups_loading )">
+                                  Loading...
+                                </td>
+                                <td colspan="4" style="text-align:center;" *ngIf="!(customer_groups_loading )">
+                                  Customer does not belong to any group
+                                </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                  </div>
+               </div>
+           
+    
+
+        
+
+    </div>
+
+    <div class="col-lg-6 pinpin">
+
+      <!-- Edit / update Customersection Section Start here-->
+      <div id="accordionparent" class="row">
+        <div class="col-12">
+          <div class="card lobicard lobicard-sortable" data-sortable="true">
+            <div class="card-header lobicard-custom-control ui-sortable-handle">
+              <div class="card-title custom_title">
+                <h4>Edit/Update Customer Information
+                </h4>
+              </div>
+            </div>
+            <div id="collapseone" class="collapse" aria-labelledby="headingThree" data-parent="#accordionparent">
+              <div class="card-body">
+                <div class="accordion">
+                  <div class="card12">
+                    <div class="card1-body">
+                      <form role="form" [formGroup]="updateCustomerForm" #f="ngForm" (submit)="updateCustomer(f)">
+                       <div class="form-group">
+                              <div class="container">
+                                  <div class="row">
+                                      <div class="col-sm">
+                                        <label for="title" class="control-label">Title</label>
+                                        <input type="text" formControlName="title" id="title" class="form-control form-control-user"
+                                        aria-describedby="emailHelp" title="Please enter customer title">
+                                            <div *ngIf="(title.touched && title.invalid) || (f.submitted && title.invalid)"
+                                            class="help-block small text-danger">
+                                        <span>Customer title is <strong>required</strong></span>
+                                      </div>
+                                  </div>
+
+                                  <div class="col-sm">
+                                    <label for="firstname" class="control-label">First Name</label>
+                                    <input type="text" formControlName="firstname" id="firstname" class="form-control form-control-user"
+                                    aria-describedby="emailHelp" title="Please enter customer first name">
+                                      <div *ngIf="(firstname.touched && firstname.invalid) || (f.submitted && firstname.invalid)"
+                                      class="help-block small text-danger">
+                                      <span>Customer first name is <strong>required</strong></span>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm">
+                                    <label for="lastname" class="control-label">Last Name</label>
+                                    <input type="text" formControlName="lastname" id="lastname" class="form-control form-control-user"
+                                    aria-describedby="emailHelp" title="Please enter customer last name">
+                                    <div *ngIf="(lastname.touched && lastname.invalid) || (f.submitted && lastname.invalid)"
+                                      class="help-block small text-danger">
+                                      <span>Customer last name is <strong>required</strong></span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                        <div class="form-group">
+                              <div class="row">
+                                <div class="col">
+                                  <label for="date_of_birth" class="control-label">Customer Date of Birth</label>
+                                  <input type="date" formControlName="date_of_birth" id="date_of_birth" class="form-control form-control-user"
+                                  aria-describedby="emailHelp" title="Please enter customer Birth date">
+                                  
+                                  <div *ngIf="(date_of_birth.touched && date_of_birth.invalid) || (f.submitted && date_of_birth.invalid)"
+                                      class="help-block small text-danger">
+                                      <span>Customer Birth date is <strong>required</strong></span>
+                                    </div>
+
+                                </div>
+                                <div class="col">
+                                  <label for="gender" class="control-label">Customer Gender </label>
+                                  <input type="gender" formControlName="gender" id="gender" class="form-control form-control-user"
+                                  aria-describedby="emailHelp" title="Please enter customer gender">
+                                   
+                                  <div *ngIf="(gender.touched && gender.invalid) || (f.submitted && gender.invalid)"
+                                  class="help-block small text-danger">
+                                  <span>Customer Gender is <strong>required</strong></span>
+                                </div>
+
+                                </div>
+                              </div>
+                        </div>
+                        
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col">
+                                <label for="country" class="control-label">Customer Country </label>
+                                <input type="country" formControlName="country" id="country" class="form-control form-control-user"
+                                aria-describedby="emailHelp" title="Please enter customer country">
+                                 
+                                  <div *ngIf="(country.touched && country.invalid) || (f.submitted && country.invalid)"
+                                  class="help-block small text-danger">
+                                  <span>Customer Country is <strong>required</strong></span>
+                                </div>
+                                 
+                              </div>
+                              <div class="col">
+                                <label for="state" class="control-label">Customer State </label>
+                                <input type="state" formControlName="state" id="state" class="form-control form-control-user"
+                                aria-describedby="emailHelp" title="Please enter customer state">
+                                 
+                                <div *ngIf="(state.touched && state.invalid) || (f.submitted && state.invalid)"
+                                class="help-block small text-danger">
+                                <span>Customer State is <strong>required</strong></span>
+                              </div>
+
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col">
+                                <label for="customer_number" class="control-label">Customer Number </label>
+                                <input type="customer_number" formControlName="customer_number" id="customer_number" class="form-control form-control-user"
+                                aria-describedby="emailHelp" title="Please enter customer number">
+                                  
+                                <div *ngIf="(customer_number.touched && customer_number.invalid) || (f.submitted && customer_number.invalid)"
+                                class="help-block small text-danger">
+                                <span>Customer number is <strong>required</strong></span>
+                              </div>
+                                 
+                              </div>
+                              <div class="col">
+                                <label for="customer_type" class="control-label">Customer Type </label>
+                                <input type="customer_type" formControlName="customer_type" id="customer_type" class="form-control form-control-user"
+                                aria-describedby="emailHelp" title="Please enter customer type">
+
+                                <div *ngIf="(customer_type.touched && customer_type.invalid) || (f.submitted && customer_type.invalid)"
+                                class="help-block small text-danger">
+                                <span>Customer type is <strong>required</strong></span>
+                              </div>
+                                   
+                              </div>
+                            </div>
+                          </div>
+                             
+                            <div class="row">
+                              <!--<div class="col">
+                                <label for="customer_type" class="control-label">Officer ID </label>
+                                <input type="text" class="form-control" placeholder="Enter Customer Officer ID" required>
+                              </div>-->
+                              
+                              <div class="col">
+                                    <label for="password" class="control-label">Select Status</label>
+                                    <select formControlName="active" id="active" class="form-control">
+                                      <option value="1">Active</option>
+                                      <option value="0">Inactive</option>
+                                    </select>
+                                    <div *ngIf="(active.touched && active.invalid) || (f.submitted && active.invalid)"
+                                    class="help-block small text-danger">
+                                      <span>Please select status and try again</span>
+                                    </div>
+                              </div>
+                              
+                            </div>
+                            <br>
+                        <div class="col-md-12 form-group user-form-group">
+                          <div>
+                            <button [disabled]="loading" type="submit" class="btn btn-add">
+                              <span *ngIf="loading" class="spinner-border spinner-border-sm" role="status"
+                              aria-hidden="true"></span>
+                              <i *ngIf="!loading" class="fa fa-check"></i> Update Customer
+                            </button>
+                          </div>
+                        </div>
+                      </form>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Edit / update Customersection Section Ending-->
+
+      <!-- Create Bank and Edit bank Section Start here-->
+      <div id="accordionparent" class="row">
+        <div class="col-12">
+          <div class="card lobicard lobicard-sortable" data-sortable="true">
+            <div class="card-header lobicard-custom-control ui-sortable-handle">
+              <div class="card-title custom_title">
+                <h4>Create/Edit Bank
+                </h4>
+              </div>
+            </div>
+            <div id="collapsetwo" class="collapse" aria-labelledby="headingThree" data-parent="#accordionparent">
+              <div class="card-body">
+                <div class="accordion">
+                  <div class="card12">
+                    <div class="card1-body">
+                      <form role="form" [formGroup]="createupdateCustomerBankForm" #f="ngForm" (submit)="createupdateCustomerBank(f)">
+                        <div class="form-group">
+                          <label for="password" class="control-label">Select Bank</label>
+                            <select formControlName="bank_name"  class="form-control">
+                              <option *ngFor="let bank of (customer_banks && customer_banks | async);" [value]="bank.BankName">{{ bank.BankName }}</option>
+                            </select>
+                            <div *ngIf="(bank_name.touched && bank_name.invalid) || (f.submitted && bank_name.invalid)"
+                              class="help-block small text-danger">
+                              <span>Please select a bank and try again</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="account_number" class="control-label">Account Number</label>
+                            <input type="number" formControlName="account_number"
+                              class="form-control form-control-user" aria-describedby="emailHelp"
+                              title="Please enter account number" required>
+                            <div
+                              *ngIf="(account_number.touched && account_number.invalid) || (f.submitted && account_number.invalid)"
+                              class="help-block small text-danger">
+                              <span>Account number is <strong>required</strong></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group user-form-group">
+                          <div>
+                            <button [disabled]="customer_banks_loading" type="submit" class="btn btn-add">
+                              <span *ngIf="customer_banks_loading" class="spinner-border spinner-border-sm" role="status"
+                                aria-hidden="true"></span>
+                              <i *ngIf="!customer_banks_loading" class="fa fa-check"></i> Submit
+                            </button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Create Bank and Edit bank Section Ending-->
+
+
+      <form role="form" [formGroup]="customerGroupForm" #h="ngForm" (submit)="addCustomerToGroups(h)" style="margin:20px 0;">
+        <div class="row">
+          <div class="col-md-12 form-group">
+            <label for="group_uuid" class="control-label">Select Group</label>
+            <select formControlName="group_uuid" id="group_uuid" class="form-control">
+              <option *ngFor="let group of groups;" [value]="group.CGUID">{{ group.Name }}</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 form-group user-form-group">
+            <div>
+              <button [disabled]="customer_create_group_loading" type="submit" class="btn btn-add">
+                <span *ngIf="customer_create_group_loading" class="spinner-border spinner-border-sm" role="status"
+                  aria-hidden="true"></span>
+                 <i *ngIf="!customer_create_group_loading" class="fa fa-check"></i> Add Customer to Group 
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</section>
+<!-- /.content -->
+
+<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content" style="border-radius: 0.3em;">
+      <div class="modal-body text-center">
+        <p>Remove customer from group?</p>
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="removeCustomerFromGroup()">Yes</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+      </div>
+    </div>
+  </div>
+</div>

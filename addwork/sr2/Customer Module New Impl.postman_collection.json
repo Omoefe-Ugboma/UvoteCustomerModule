@@ -1,0 +1,1554 @@
+{
+	"info": {
+		"_postman_id": "9b5622e9-be99-49a3-ba48-28a5b2656a0f",
+		"name": "Customer Module New Impl",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Customer Detail",
+			"item": [
+				{
+					"name": "test-create-customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Dr\",\r\n    \"firstname\": \"Customer\",\r\n    \"middlename\": \"Customer\",\r\n    \"lastname\": \"One\",\r\n    \"date_of_birth\": \"1991-01-01\",\r\n    \"nin\": \"12345678901\",\r\n    \"bvn\": \"22171441211\",\r\n    \"gender\": \"male\",\r\n    \"nationality\": \"Nigeria\",\r\n    \"country_of_origin\": \"Nigeria\",\r\n    \"state\": \"Lagos\",\r\n    \"nok_firstname\": \"CustomerOne\",\r\n    \"nok_lastname\": \"Kin\",\r\n    \"relationship\": \"Brother\",\r\n    \"email\":[\r\n\t\t{\r\n\t\t\t\"email\": \"customerone0@gmail.com\",\r\n\t\t\t\"default\": true\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"email\": \"customerone1@gmail.com\",\r\n\t\t\t\"default\": false\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"email\": \"customerone2@gmail.com\",\r\n\t\t\t\"default\": false\r\n\t\t}\r\n\t],\r\n    \"phone\":[\r\n\t\t{\r\n\t\t\t\"phone\": \"09013145681\",\r\n\t\t\t\"default\": true\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"phone\": \"09013245681\",\r\n\t\t\t\"default\": false\r\n\t\t}\r\n\t],\r\n    \"address\": [\r\n\t\t{\r\n\t\t\t\"address1\": \"12 Awolowo Road\",\r\n\t\t\t\"address2\": \"5 Strachan Street Lagos\",\r\n\t\t\t\"city\": \"Obalende\",\r\n\t\t\t\"state\": \"Lagos\",\r\n            \"default\": true\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"address1\": \"11 Abebi Close Ojota\",\r\n\t\t\t\"address2\": \"12 Palm Avenue Lagos\",\r\n\t\t\t\"city\": \"Obalende\",\r\n\t\t\t\"state\": \"Lagos\",\r\n            \"default\": true\r\n\t\t}\r\n\t],\r\n    \"bank\": [\r\n\t\t{   \r\n\t\t\t\"bank_name\": \"Jaiz Bank\",\r\n\t\t\t\"account_name\": \"Customer One\",\r\n\t\t\t\"account_number\": \"0112435681\",\r\n            \"default\": true\r\n\t\t},\r\n\t\t{   \r\n\t\t\t\"bank_name\": \"Polaris Bank\",\r\n\t\t\t\"account_name\": \"Customer One\",\r\n            \"account_number\": \"0212435681\",\r\n            \"default\": false\r\n\t\t},\r\n\t\t{   \r\n\t\t\t\"bank_name\": \"Wema Bank\",\r\n\t\t\t\"account_name\": \"Customer One\",\r\n            \"account_number\": \"0312435681\",\r\n            \"default\": false\r\n\t\t}\r\n\t]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/test/create-customer",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"test",
+								"create-customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Dr\",\r\n    \"firstname\": \"Customer\",\r\n    \"middlename\": \"Customer\",\r\n    \"lastname\": \"One\",\r\n    \"date_of_birth\": \"1991-01-01\",\r\n    \"nin\": \"12345678901\",\r\n    \"bvn\": \"22171441211\",\r\n    \"gender\": \"male\",\r\n    \"nationality\": \"Nigeria\",\r\n    \"country_of_origin\": \"Nigeria\",\r\n    \"state\": \"Lagos\",\r\n    \"nok_firstname\": \"CustomerOne\",\r\n    \"nok_lastname\": \"Kin\",\r\n    \"nok_phone\": \"09312311211\",\r\n    \"nok_email\": \"customeronekin@gmail.com\",\r\n    \"relationship\": \"Brother\",\r\n    \"customer_type\": \"individual\",\r\n    \"officer_id\": \"115\",\r\n    \"identification\": \"uploaded file\",\r\n    \"identification_type\": \"nationalid\",\r\n    \"email\": [\r\n        {\r\n            \"email\": \"customerone0@gmail.com\",\r\n            \"default\": true\r\n        },\r\n        {\r\n            \"email\": \"customerone1@gmail.com\",\r\n            \"default\": false\r\n        },\r\n        {\r\n            \"email\": \"customerone2@gmail.com\",\r\n            \"default\": false\r\n        }\r\n    ],\r\n    \"phone\": [\r\n        {\r\n            \"phone\": \"09013145681\",\r\n            \"default\": true\r\n        },\r\n        {\r\n            \"phone\": \"09013245681\",\r\n            \"default\": false\r\n        }\r\n    ],\r\n    \"address\": [\r\n        {\r\n            \"address1\": \"12 Awolowo Road\",\r\n            \"address2\": \"5 Strachan Street Lagos\",\r\n            \"city\": \"Obalende\",\r\n            \"state\": \"Lagos\",\r\n            \"default\": true\r\n        },\r\n        {\r\n            \"address1\": \"11 Abebi Close Ojota\",\r\n            \"address2\": \"12 Palm Avenue Lagos\",\r\n            \"city\": \"Obalende\",\r\n            \"state\": \"Lagos\",\r\n            \"default\": true\r\n        }\r\n    ],\r\n    \"bank\": [\r\n        {\r\n            \"bank_name\": \"Jaiz Bank\",\r\n            \"account_name\": \"Customer One\",\r\n            \"account_number\": \"0112435681\",\r\n            \"default\": true\r\n        },\r\n        {\r\n            \"bank_name\": \"Polaris Bank\",\r\n            \"account_name\": \"Customer One\",\r\n            \"account_number\": \"0212435681\",\r\n            \"default\": false\r\n        },\r\n        {\r\n            \"bank_name\": \"Wema Bank\",\r\n            \"account_name\": \"Customer One\",\r\n            \"account_number\": \"0312435681\",\r\n            \"default\": false\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/customers/create-draft",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"customers",
+								"create-draft"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "@test-response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"customer_number\": \"99999\",\r\n    \"title\": \"Dr\",\r\n    \"firstname\": \"Customer\",\r\n    \"middlename\": \"Customer\",\r\n    \"lastname\": \"One\",\r\n    \"date_of_birth\": \"1991-01-01\",\r\n    \"nin\": \"12345678901\",\r\n    \"bvn\": \"22171441211\",\r\n    \"gender\": \"male\",\r\n    \"nationality\": \"Nigeria\",\r\n    \"country_of_origin\": \"Nigeria\",\r\n    \"state\": \"Lagos\",\r\n    \"nok_firstname\": \"CustomerOne\",\r\n    \"nok_lastname\": \"Kin\",\r\n    \"relationship\": \"Brother\",\r\n    \"email\":[\r\n\t\t{\r\n\t\t\t\"email\": \"customerone0@gmail.com\",\r\n\t\t\t\"default\": true\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"email\": \"customerone1@gmail.com\",\r\n\t\t\t\"default\": false\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"email\": \"customerone2@gmail.com\",\r\n\t\t\t\"default\": false\r\n\t\t}\r\n\t],\r\n    \"phone\":[\r\n\t\t{\r\n\t\t\t\"phone\": \"09013145681\",\r\n\t\t\t\"default\": true\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"phone\": \"09013245681\",\r\n\t\t\t\"default\": false\r\n\t\t}\r\n\t],\r\n    \"address\": [\r\n\t\t{\r\n\t\t\t\"address1\": \"12 Awolowo Road\",\r\n\t\t\t\"address2\": \"5 Strachan Street Lagos\",\r\n\t\t\t\"city\": \"Obalende\",\r\n\t\t\t\"state\": \"Lagos\",\r\n            \"default\": true\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"address1\": \"11 Abebi Close Ojota\",\r\n\t\t\t\"address2\": \"12 Palm Avenue Lagos\",\r\n\t\t\t\"city\": \"Obalende\",\r\n\t\t\t\"state\": \"Lagos\",\r\n            \"default\": true\r\n\t\t}\r\n\t],\r\n    \"bank\": [\r\n\t\t{   \r\n\t\t\t\"bank_name\": \"Jaiz Bank\",\r\n\t\t\t\"account_name\": \"Customer One\",\r\n\t\t\t\"account_number\": \"0112435681\",\r\n            \"default\": true\r\n\t\t},\r\n\t\t{   \r\n\t\t\t\"bank_name\": \"Polaris Bank\",\r\n\t\t\t\"account_name\": \"Customer One\",\r\n            \"account_number\": \"0212435681\",\r\n            \"default\": false\r\n\t\t},\r\n\t\t{   \r\n\t\t\t\"bank_name\": \"Wema Bank\",\r\n\t\t\t\"account_name\": \"Customer One\",\r\n            \"account_number\": \"0312435681\",\r\n            \"default\": false\r\n\t\t}\r\n\t]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/customers/create",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"customers",
+										"create"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8010"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Mar 2022 10:33:51 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Mar 2022 10:33:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.7"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, GET, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Max-Age",
+									"value": "86400"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, Accept, Authorization, X-Requested-With"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"code\": 201,\n    \"message\": \"Customer created successfully\",\n    \"data\": \"20\"\n}"
+						}
+					]
+				},
+				{
+					"name": "create-customer-with-doc",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Dr",
+									"type": "text"
+								},
+								{
+									"key": "firstname",
+									"value": "Charles",
+									"type": "text"
+								},
+								{
+									"key": "middlename",
+									"value": "Robert",
+									"type": "text"
+								},
+								{
+									"key": "lastname",
+									"value": "Darwin",
+									"type": "text"
+								},
+								{
+									"key": "date_of_birth",
+									"value": "1991-01-01",
+									"type": "text"
+								},
+								{
+									"key": "nin",
+									"value": "12345678903",
+									"type": "text"
+								},
+								{
+									"key": "bvn",
+									"value": "22171441213",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "male",
+									"type": "text"
+								},
+								{
+									"key": "nationality",
+									"value": "Nigeria",
+									"type": "text"
+								},
+								{
+									"key": "country_of_origin",
+									"value": "Nigeria",
+									"type": "text"
+								},
+								{
+									"key": "state",
+									"value": "Lagos",
+									"type": "text"
+								},
+								{
+									"key": "nok_firstname",
+									"value": "Isaac",
+									"type": "text"
+								},
+								{
+									"key": "nok_lastname",
+									"value": "Susannah",
+									"type": "text"
+								},
+								{
+									"key": "relationship",
+									"value": "Darwin",
+									"type": "text"
+								},
+								{
+									"key": "email[0][email]",
+									"value": "charlesrobertd@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "email[0][default]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "email[1][email]",
+									"value": "charlesrdarwin@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "email[1][default]",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "email[2][email]",
+									"value": "charlesdarwin@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "email[2][default]",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "phone[0][phone]",
+									"value": "09013145693",
+									"type": "text"
+								},
+								{
+									"key": "phone[0][default]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "phone[1][phone]",
+									"value": "09013245693",
+									"type": "text"
+								},
+								{
+									"key": "phone[1][default]",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "address[0][address1]",
+									"value": "12 Awolowo Road",
+									"type": "text"
+								},
+								{
+									"key": "address[0][address2]",
+									"value": "5 Strachan Street Lagos",
+									"type": "text"
+								},
+								{
+									"key": "address[0][city]",
+									"value": "Obalende",
+									"type": "text"
+								},
+								{
+									"key": "address[0][state]",
+									"value": "Lagos",
+									"type": "text"
+								},
+								{
+									"key": "address[0][default]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "address[1][address1]",
+									"value": "11 Abebi Close Ojota",
+									"type": "text"
+								},
+								{
+									"key": "address[1][address2]",
+									"value": "12 Palm Avenue Lagos",
+									"type": "text"
+								},
+								{
+									"key": "address[1][city]",
+									"value": "Obalende",
+									"type": "text"
+								},
+								{
+									"key": "address[1][state]",
+									"value": "Lagos",
+									"type": "text"
+								},
+								{
+									"key": "address[1][default]",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "bank[0][bank_name]",
+									"value": "Kuda Bank",
+									"type": "text"
+								},
+								{
+									"key": "bank[0][account_name]",
+									"value": "Customer One",
+									"type": "text"
+								},
+								{
+									"key": "bank[0][account_number]",
+									"value": "0312435683",
+									"type": "text"
+								},
+								{
+									"key": "bank[0][default]",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "bank[1][bank_name]",
+									"value": "Polaris Bank",
+									"type": "text"
+								},
+								{
+									"key": "bank[1][account_name]",
+									"value": "Jim Doe",
+									"type": "text"
+								},
+								{
+									"key": "bank[1][account_number]",
+									"value": "0412435683",
+									"type": "text"
+								},
+								{
+									"key": "bank[1][default]",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "bank[2][bank_name]",
+									"value": "Zenith Bank",
+									"type": "text"
+								},
+								{
+									"key": "bank[2][account_name]",
+									"value": "Jim Doe",
+									"type": "text"
+								},
+								{
+									"key": "bank[2][account_number]",
+									"value": "0312435683",
+									"type": "text"
+								},
+								{
+									"key": "bank[2][default]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "identification",
+									"type": "file",
+									"src": "/C:/Users/wasiu.majoyeogbe/Downloads/personal/Docker Course Beginer Cert.PNG"
+								},
+								{
+									"key": "identification_type",
+									"value": "nationalid",
+									"type": "text"
+								},
+								{
+									"key": "customer_type",
+									"value": "individual",
+									"type": "text"
+								},
+								{
+									"key": "nok_phone",
+									"value": "09312311213",
+									"type": "text"
+								},
+								{
+									"key": "nok_email",
+									"value": "susannahdarwin@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "officer_id",
+									"value": "115",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/customers/create-draft",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"customers",
+								"create-draft"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "@no-upload",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "customer_number",
+											"value": "99999",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "Dr",
+											"type": "text"
+										},
+										{
+											"key": "firstname",
+											"value": "Customer",
+											"type": "text"
+										},
+										{
+											"key": "middlename",
+											"value": "Customer",
+											"type": "text"
+										},
+										{
+											"key": "lastname",
+											"value": "One",
+											"type": "text"
+										},
+										{
+											"key": "date_of_birth",
+											"value": "1991-01-01",
+											"type": "text"
+										},
+										{
+											"key": "nin",
+											"value": "12345678901",
+											"type": "text"
+										},
+										{
+											"key": "bvn",
+											"value": "22171441211",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "male",
+											"type": "text"
+										},
+										{
+											"key": "nationality",
+											"value": "Nigeria",
+											"type": "text"
+										},
+										{
+											"key": "country_of_origin",
+											"value": "Nigeria",
+											"type": "text"
+										},
+										{
+											"key": "state",
+											"value": "Lagos",
+											"type": "text"
+										},
+										{
+											"key": "nok_firstname",
+											"value": "CustomerOne",
+											"type": "text"
+										},
+										{
+											"key": "nok_lastname",
+											"value": "Kin",
+											"type": "text"
+										},
+										{
+											"key": "relationship",
+											"value": "Brother",
+											"type": "text"
+										},
+										{
+											"key": "email[0][email]",
+											"value": "customerone0@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "email[0][default]",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "email[1][email]",
+											"value": "customerone1@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "email[1][default]",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "email[2][email]",
+											"value": "customerone2@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "email[2][default]",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "phone[0][phone]",
+											"value": "09013145681",
+											"type": "text"
+										},
+										{
+											"key": "phone[0][default]",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "phone[1][phone]",
+											"value": "09013245681",
+											"type": "text"
+										},
+										{
+											"key": "phone[1][default]",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "address[0][address1]",
+											"value": "12 Awolowo Road",
+											"type": "text"
+										},
+										{
+											"key": "address[0][address2]",
+											"value": "5 Strachan Street Lagos",
+											"type": "text"
+										},
+										{
+											"key": "address[0][city]",
+											"value": "Obalende",
+											"type": "text"
+										},
+										{
+											"key": "address[0][state]",
+											"value": "Lagos",
+											"type": "text"
+										},
+										{
+											"key": "address[0][default]",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "address[1][address1]",
+											"value": "11 Abebi Close Ojota",
+											"type": "text"
+										},
+										{
+											"key": "address[1][address2]",
+											"value": "12 Palm Avenue Lagos",
+											"type": "text"
+										},
+										{
+											"key": "address[1][city]",
+											"value": "Obalende",
+											"type": "text"
+										},
+										{
+											"key": "address[1][state]",
+											"value": "Lagos",
+											"type": "text"
+										},
+										{
+											"key": "address[1][default]",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "bank[0][bank_name]",
+											"value": "Jaiz Bank",
+											"type": "text"
+										},
+										{
+											"key": "bank[0][account_name]",
+											"value": "Customer One",
+											"type": "text"
+										},
+										{
+											"key": "bank[0][account_number]",
+											"value": "0112435681",
+											"type": "text"
+										},
+										{
+											"key": "bank[0][default]",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "bank[1][bank_name]",
+											"value": "Polaris Bank",
+											"type": "text"
+										},
+										{
+											"key": "bank[1][account_name]",
+											"value": "Customer One",
+											"type": "text"
+										},
+										{
+											"key": "bank[1][account_number]",
+											"value": "0212435681",
+											"type": "text"
+										},
+										{
+											"key": "bank[1][default]",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "bank[2][bank_name]",
+											"value": "Wema Bank",
+											"type": "text"
+										},
+										{
+											"key": "bank[2][account_name]",
+											"value": "Customer One",
+											"type": "text"
+										},
+										{
+											"key": "bank[2][account_number]",
+											"value": "0312435681",
+											"type": "text"
+										},
+										{
+											"key": "bank[2][default]",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "identification",
+											"type": "file",
+											"src": []
+										},
+										{
+											"key": "identification_type",
+											"value": "nationalid",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/customers/create",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"customers",
+										"create"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8010"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Mar 2022 10:59:26 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Mar 2022 10:59:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.7"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, GET, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Max-Age",
+									"value": "86400"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, Accept, Authorization, X-Requested-With"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date"
+								}
+							],
+							"body": "{\n    \"status\": true,\n    \"code\": 201,\n    \"message\": \"Customer created successfully\",\n    \"data\": \"21\"\n}"
+						},
+						{
+							"name": "@test-with-upload",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "customer_number",
+											"value": "99999",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "Dr",
+											"type": "text"
+										},
+										{
+											"key": "firstname",
+											"value": "Customer",
+											"type": "text"
+										},
+										{
+											"key": "middlename",
+											"value": "Customer",
+											"type": "text"
+										},
+										{
+											"key": "lastname",
+											"value": "One",
+											"type": "text"
+										},
+										{
+											"key": "date_of_birth",
+											"value": "1991-01-01",
+											"type": "text"
+										},
+										{
+											"key": "nin",
+											"value": "12345678901",
+											"type": "text"
+										},
+										{
+											"key": "bvn",
+											"value": "22171441211",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "male",
+											"type": "text"
+										},
+										{
+											"key": "nationality",
+											"value": "Nigeria",
+											"type": "text"
+										},
+										{
+											"key": "country_of_origin",
+											"value": "Nigeria",
+											"type": "text"
+										},
+										{
+											"key": "state",
+											"value": "Lagos",
+											"type": "text"
+										},
+										{
+											"key": "nok_firstname",
+											"value": "CustomerOne",
+											"type": "text"
+										},
+										{
+											"key": "nok_lastname",
+											"value": "Kin",
+											"type": "text"
+										},
+										{
+											"key": "relationship",
+											"value": "Brother",
+											"type": "text"
+										},
+										{
+											"key": "email[0][email]",
+											"value": "customerone0@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "email[0][default]",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "email[1][email]",
+											"value": "customerone1@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "email[1][default]",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "email[2][email]",
+											"value": "customerone2@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "email[2][default]",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "phone[0][phone]",
+											"value": "09013145681",
+											"type": "text"
+										},
+										{
+											"key": "phone[0][default]",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "phone[1][phone]",
+											"value": "09013245681",
+											"type": "text"
+										},
+										{
+											"key": "phone[1][default]",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "address[0][address1]",
+											"value": "12 Awolowo Road",
+											"type": "text"
+										},
+										{
+											"key": "address[0][address2]",
+											"value": "5 Strachan Street Lagos",
+											"type": "text"
+										},
+										{
+											"key": "address[0][city]",
+											"value": "Obalende",
+											"type": "text"
+										},
+										{
+											"key": "address[0][state]",
+											"value": "Lagos",
+											"type": "text"
+										},
+										{
+											"key": "address[0][default]",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "address[1][address1]",
+											"value": "11 Abebi Close Ojota",
+											"type": "text"
+										},
+										{
+											"key": "address[1][address2]",
+											"value": "12 Palm Avenue Lagos",
+											"type": "text"
+										},
+										{
+											"key": "address[1][city]",
+											"value": "Obalende",
+											"type": "text"
+										},
+										{
+											"key": "address[1][state]",
+											"value": "Lagos",
+											"type": "text"
+										},
+										{
+											"key": "address[1][default]",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "bank[0][bank_name]",
+											"value": "Jaiz Bank",
+											"type": "text"
+										},
+										{
+											"key": "bank[0][account_name]",
+											"value": "Customer One",
+											"type": "text"
+										},
+										{
+											"key": "bank[0][account_number]",
+											"value": "0112435681",
+											"type": "text"
+										},
+										{
+											"key": "bank[0][default]",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "bank[1][bank_name]",
+											"value": "Polaris Bank",
+											"type": "text"
+										},
+										{
+											"key": "bank[1][account_name]",
+											"value": "Customer One",
+											"type": "text"
+										},
+										{
+											"key": "bank[1][account_number]",
+											"value": "0212435681",
+											"type": "text"
+										},
+										{
+											"key": "bank[1][default]",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "bank[2][bank_name]",
+											"value": "Wema Bank",
+											"type": "text"
+										},
+										{
+											"key": "bank[2][account_name]",
+											"value": "Customer One",
+											"type": "text"
+										},
+										{
+											"key": "bank[2][account_number]",
+											"value": "0312435681",
+											"type": "text"
+										},
+										{
+											"key": "bank[2][default]",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "identification",
+											"type": "file",
+											"src": "/C:/Users/wasiu.majoyeogbe/Downloads/Customer.PNG"
+										},
+										{
+											"key": "identification_type",
+											"value": "nationalid",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/customers/create",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"customers",
+										"create"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8010"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Mar 2022 11:02:12 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Mar 2022 11:02:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.7"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, GET, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Max-Age",
+									"value": "86400"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, Accept, Authorization, X-Requested-With"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"code\": 201,\n    \"message\": \"Customer created successfully\",\n    \"data\": \"22\"\n}"
+						}
+					]
+				},
+				{
+					"name": "all customer",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/customers/?status=draft",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"customers",
+								""
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "draft"
+								},
+								{
+									"key": "nin",
+									"value": "56789098765",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "approve-draft",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/customers/approve",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"customers",
+								"approve"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id",
+											"value": "100",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/customers/approve-draft",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"customers",
+										"approve-draft"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8010"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 Apr 2022 10:50:04 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 Apr 2022 10:50:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.7"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, GET, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Max-Age",
+									"value": "86400"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, Accept, Authorization, X-Requested-With"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"code\": 201,\n    \"message\": \"Customer details successfully approved\",\n    \"data\": \"199\"\n}"
+						},
+						{
+							"name": "error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id",
+											"value": "100",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/customers/approve-draft",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"customers",
+										"approve-draft"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8010"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 Apr 2022 10:50:38 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 Apr 2022 10:50:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.7"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, GET, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Max-Age",
+									"value": "86400"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, Accept, Authorization, X-Requested-With"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": false,\n    \"code\": 500,\n    \"message\": \"Unable to approve customer detail\",\n    \"data\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "submit-draft",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "30",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/customers/submit",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"customers",
+								"submit"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id",
+											"value": "100",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/customers/submit-draft",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"customers",
+										"submit-draft"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8010"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 Apr 2022 10:35:48 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 Apr 2022 10:35:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.7"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, GET, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Max-Age",
+									"value": "86400"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, Accept, Authorization, X-Requested-With"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": false,\n    \"code\": 500,\n    \"message\": \"Unable to submit customer detail\",\n    \"data\": []\n}"
+						},
+						{
+							"name": "response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id",
+											"value": "30",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/customers/submit-draft",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"customers",
+										"submit-draft"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8010"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 Apr 2022 10:43:15 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 Apr 2022 10:43:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.7"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, GET, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Max-Age",
+									"value": "86400"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, Accept, Authorization, X-Requested-With"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"code\": 201,\n    \"message\": \"Customer details successfully submitted\",\n    \"data\": []\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": ""
+		},
+		{
+			"key": "toke1",
+			"value": ""
+		}
+	]
+}

@@ -1,0 +1,103 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <div class="header-icon">
+    <i class="fa fa-outdent"></i>
+  </div>
+  <div class="header-title">
+    <h1>Customer</h1>
+    <small>Customers details</small>
+  </div>
+</section>
+<section class="content">
+  <div class="row">
+    <div class="col-lg-12 pinpin">
+      <div class="row">
+        
+        <div class="col-6">
+          <!-- <app-email-list [cust_email]="cust_email" (setEmailUpdateValues)="setEmailUpdateFormValue($event)"></app-email-list> -->
+         <!-- <app-email-list></app-email-list> -->
+         
+         <app-customer-view></app-customer-view>
+        </div>
+
+        <div class="col-6">
+          <app-customer-test-parent></app-customer-test-parent>
+          <!-- <app-customeraddress></app-customeraddress> -->
+         <!--  -->
+         <!-- <app-customerbank></app-customerbank> -->
+        </div>
+
+      </div>
+    </div>
+
+   <!-- Edit and Create Section-->
+    <div class="col-lg-6 pinpin">
+      <div class="row">
+
+        <div class="col-12">
+          <!-- Email Creation and edit area-->
+          <div id="accordionparent" class="row">
+            
+            <!-- <div class="col-12">
+              <div class="card lobicard lobicard-sortable" data-sortable="true">
+                <div class="card-header lobicard-custom-control ui-sortable-handle">
+                  <div class="card-title custom_title">
+                    <h4>Create/Edit Customer Email
+                    </h4>
+                  </div>
+                </div>
+                <div id="collapseseven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionparent">
+                  <div class="card-body">
+                    <div class="accordion">
+                      <div class="card12">
+                        <div class="card1-body">
+                          <form role="form" [formGroup]="createupdateCustomerEmailForm" #f="ngForm"
+                            (submit)="createupdateCustomerEmail(f)">
+                            <div class="form-group">
+                              <label for="email" class="control-label">First email</label>
+                              <input type="text" formControlName="email" class="form-control form-control-user"
+                                aria-describedby="emailHelp" title="Please enter account number" required>
+                              <div *ngIf="(email.touched && email.invalid) || (f.submitted && email.invalid)"
+                                class="help-block small text-danger">
+                                <span>email is <strong>required</strong></span>
+                              </div>
+                            </div>
+          
+                            <div class="form-group">
+                              <label for="email2" class="control-label">Second Email</label>
+                              <input type="text" formControlName="email2" class="form-control form-control-user"
+                                aria-describedby="emailHelp" title="Please enter account number" required>
+                              <div *ngIf="(email2.touched && email2.invalid) || (f.submitted && email2.invalid)"
+                                class="help-block small text-danger">
+                                <span>section email is <strong>required</strong></span>
+                              </div>
+                            </div>
+                            <div class="col-md-12 form-group user-form-group">
+                              <div>
+                                <button [disabled]="customer_email_loading" type="submit" class="btn btn-add">
+                                  <span *ngIf="customer_email_loading" class="spinner-border spinner-border-sm" role="status"
+                                    aria-hidden="true"></span>
+                                  <i *ngIf="!customer_email_loading" class="fa fa-check"></i> Submit
+                                </button>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+
+        <div class="col-12">
+          <!-- Next create and editing here -->
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /.content -->

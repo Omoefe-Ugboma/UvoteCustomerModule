@@ -1,0 +1,10 @@
+<form role="form" [formGroup]="form" (submit)="onSubmit()">
+  <formly-form [model]="model" [fields]="fields" [form]="form"></formly-form>
+  <div class="form-group text-center">
+    <button [disabled]="(loading | async) || (!form.valid)" class="btn btn-site-color w-100">
+      <span *ngIf="loading | async" class="spinner-border spinner-border-sm" role="status"
+        aria-hidden="true"></span>
+      Login
+    </button>
+  </div>
+</form>

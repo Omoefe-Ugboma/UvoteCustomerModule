@@ -1,0 +1,59 @@
+<div class="card lobicard" data-sortable="true">
+  <div class="card-header lobicard-custom-control">
+    <div class="card-title custom_title">
+      <h4>Customer Info</h4>
+    </div>
+    <div class="dropdown">
+      <ul class="dropdown-menu dropdown-menu-right">
+        <li>
+          <button (click)="customerUpdate(customer.ID)" class="btn btn-add btn-sm" data-toggle="collapse" data-target="#collapseone" aria-expanded="false"
+            aria-controls="collapseOne">
+            <i class="card-control-icon fa fa-pencil"></i> Update Info
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover">
+        <tbody *ngIf="customer">
+          <tr>
+            <td><b>Name</b></td>
+            <td>{{customer.Title}}. {{customer.FirstName}} {{customer.LastName}}</td>
+          </tr>
+          <tr>
+            <td><b>Birth Date</b></td>
+            <td>{{customer.DateOfBirth}}</td>
+          </tr>
+          <tr>
+            <td><b>Gender</b></td>
+            <td>{{customer.Gender}}</td>
+          </tr>
+          <tr>
+            <td><b>Country</b></td>
+            <td>{{customer.Country}}</td>
+          </tr>
+          <tr>
+            <td><b>State</b></td>
+            <td>{{customer.State}}</td>
+          </tr>
+          <tr>
+            <td><b>Customer Type</b></td>
+            <td>{{customer.CustomerType}}</td>
+          </tr>
+          <tr>
+            <td><b>Customer Number</b></td>
+            <td>{{customer.CustomerNumber}}</td>
+          </tr>
+          <tr>
+            <td><b>Customer Status</b></td>
+              <td>
+                {{customer.Status == 0 ? 'inactive' : 'active'}}
+              </td> 
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

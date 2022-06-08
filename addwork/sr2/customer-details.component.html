@@ -1,0 +1,85 @@
+  <!-- Main content -->
+  <section class="content">
+    <div class="row">
+      <div class="col-lg-6 pinpin">
+        <div class="row">
+          <div class="col-12">
+            <div class="card lobicard" data-sortable="true">
+              <div class="card-header lobicard-custom-control ui-sortable-handle">
+                <div class="card-title custom_title">
+                  <h4>Customer Details
+                  </h4>
+                </div>
+                <div class="dropdown">
+                  <ul class="dropdown-menu dropdown-menu-right">
+                    <li>
+                      <button class="btn btn-add btn-sm" data-toggle="collapse" data-target="#collapsecustDetails"
+                        aria-expanded="false" aria-controls="collapseCustDetails">
+                        <i class="card-control-icon fa fa-plus"></i> Update Info
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <tbody>
+                          <tr>
+                            <td><b>Full Name</b></td>
+                            <td>{{title}}. {{firstname}} {{lastname}}</td>
+                          </tr>
+                          <tr>
+                            <td><b>Birth Date</b></td>
+                            <td>{{date_of_birth}}</td>
+                          </tr>
+                          <tr>
+                            <td><b>Gender</b></td>
+                            <td>{{gender}}</td>
+                          </tr>
+                          <tr>
+                            <td><b>Country</b></td>
+                            <td>{{country}}</td>
+                          </tr>
+                          <tr>
+                            <td><b>State</b></td>
+                            <td>{{state}}</td>
+                          </tr>
+
+                          <tr>
+                            <td><b>Customer Number</b></td>
+                            <td>{{customer_number}}</td>
+                          </tr>
+                          
+                          <tr>
+                            <td><b>Officer ID</b></td>
+                            <td>{{customer_type}}</td>
+                          </tr>
+
+                          <tr>
+                            <td><b>Customer Type</b></td>
+                            <td>{{officer_id}}</td>
+                          </tr>
+
+                          <tr>
+                            <td><b>Status</b></td>
+                              <td class="active" [ngStyle]="{'background-color':account_status === 'active' ? 'green' : 'red' }">
+                                {{account_status}}
+                              </td>
+                          </tr>
+
+                        </tbody>
+                      </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+       
+          <!-- Update section will be here-->
+
+    </div>
+  </section>
+  <!-- /.content -->
+  
